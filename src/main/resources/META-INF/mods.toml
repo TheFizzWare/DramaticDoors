@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+
+[[mods]]
+    modId="dramaticdoors"
+    version="1.14.4-1.0.0"
+    displayName="Dramatic Doors"
+    displayURL=""
+    issueTrackerURL=""
+    authors="FizzWare"
+    credits="Thanks to the creators of Minecraft and Forge."
+    description='''
+    Gone are the ways of the past. Doors that are barely tall enough to fit your player? PAH!
+    With the modern era of innovations comes a new door type: the tall door.
+    These 3-block-high doors come in every vanilla variety - Oak, Spruce, Birch, Acacia, Dark Oak, Jungle, and even Iron!
+    Craft one by putting 3 of the vanilla variant vertically in a crafting table.
+    '''
+
+[[dependencies.dramaticdoors]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28.1,)"
+    ordering="AFTER"
+    side="BOTH"
