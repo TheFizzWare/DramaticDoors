@@ -165,7 +165,7 @@ public class TallDoorBlock extends Block {
         BlockState rightBlockstate = iblockreader.getBlockState(rightPos); // Right Blockstate
         BlockPos rightPosAbove = placePosAbove.offset(rightDir); // Right Up Pos
         BlockState rightAboveBlockstate = iblockreader.getBlockState(rightPosAbove); // Right Up Blockstate
-        int i = (leftBlockstate.func_224756_o(iblockreader, leftPos) ? -1 : 0) + (leftAboveBlockstate.func_224756_o(iblockreader, leftPosAbove) ? -1 : 0) + (rightBlockstate.func_224756_o(iblockreader, rightPos) ? 1 : 0) + (rightAboveBlockstate.func_224756_o(iblockreader, rightPosAbove) ? 1 : 0);
+        int i = (leftBlockstate.isCollisionShapeOpaque(iblockreader, leftPos) ? -1 : 0) + (leftAboveBlockstate.isCollisionShapeOpaque(iblockreader, leftPosAbove) ? -1 : 0) + (rightBlockstate.isCollisionShapeOpaque(iblockreader, rightPos) ? 1 : 0) + (rightAboveBlockstate.isCollisionShapeOpaque(iblockreader, rightPosAbove) ? 1 : 0);
         boolean leftIsLowerOfSameType = leftBlockstate.getBlock() == this && leftBlockstate.get(THIRD) == TripleBlockPart.LOWER;
         boolean rightIsLowerOfSameType = rightBlockstate.getBlock() == this && rightBlockstate.get(THIRD) == TripleBlockPart.LOWER;
         if ((!leftIsLowerOfSameType || rightIsLowerOfSameType) && i <= 0) {
@@ -185,14 +185,14 @@ public class TallDoorBlock extends Block {
     }
 
     @Override
-    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (this.material == Material.IRON) {
-            return false;
+            return ActionResultType.PASS;
         } else {
             state = state.cycle(OPEN);
             worldIn.setBlockState(pos, state, 10);
             worldIn.playEvent(player, state.get(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-            return true;
+            return ActionResultType.SUCCESS;
         }
     }
 
@@ -248,7 +248,7 @@ public class TallDoorBlock extends Block {
         BlockState belowState = worldIn.getBlockState(below);
         BlockState below2State = worldIn.getBlockState(below2);
         if (state.get(THIRD) == TripleBlockPart.LOWER) {
-            result = belowState.func_224755_d(worldIn, below, Direction.UP);
+            result = belowState.isSolidSide(worldIn, below, Direction.UP);
             LOGGER.error("isValid? " + result + " FROM BRANCH 1");
             return result;
         } else if (state.get(THIRD) == TripleBlockPart.MIDDLE) {
@@ -313,10 +313,6 @@ public class TallDoorBlock extends Block {
 
     public PushReaction getPushReaction(BlockState state) {
         return PushReaction.DESTROY;
-    }
-
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
     }
 
     public BlockState rotate(BlockState state, Rotation rot) {
