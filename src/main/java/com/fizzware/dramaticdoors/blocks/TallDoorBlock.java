@@ -249,15 +249,12 @@ public class TallDoorBlock extends Block {
         BlockState below2State = worldIn.getBlockState(below2);
         if (state.get(THIRD) == TripleBlockPart.LOWER) {
             result = belowState.isSolidSide(worldIn, below, Direction.UP);
-            LOGGER.error("isValid? " + result + " FROM BRANCH 1");
             return result;
         } else if (state.get(THIRD) == TripleBlockPart.MIDDLE) {
             result = belowState.getBlock() == this;
-            LOGGER.error("isValid? " + result + " FROM BRANCH 2");
             return result;
         } else {
             result = belowState.getBlock() == this && below2State.getBlock() == this;
-            LOGGER.error("isValid? " + result + " FROM BRANCH 3");
             return result;
         }
     }

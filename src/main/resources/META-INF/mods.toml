@@ -3,7 +3,7 @@ loaderVersion="[31,)"
 
 [[mods]]
     modId="dramaticdoors"
-    version="1.15.2-1.0.1"
+    version="1.15.2-1.1.0"
     displayName="Dramatic Doors"
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dramatic-doors"
     issueTrackerURL="https://github.com/TheFizzWare/DramaticDoors/issues"

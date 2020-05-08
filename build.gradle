@@ -12,7 +12,7 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'maven-publish'
 
-version = '1.0.1'
+version = '1.1.0'
 group = 'com.fizzware.dramaticdoors' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dramaticdoors'
 
@@ -44,7 +44,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                dramaticdoors {
                     source sourceSets.main
                 }
             }
@@ -60,7 +60,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                examplemod {
+                dramaticdoors {
                     source sourceSets.main
                 }
             }
@@ -75,7 +75,7 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'dramaticdoors', '--all', '--output', file('src/generated/resources/')
 
             mods {
                 examplemod {
