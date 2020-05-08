@@ -1,5 +1,5 @@
 {
-    "parent": "block/door_top",
+    "parent": "dramaticdoors:block/door_middle",
     "textures": {
         "bottom": "dramaticdoors:blocks/tall_iron_door_middle",
         "middle": "dramaticdoors:blocks/tall_iron_door_middle",
