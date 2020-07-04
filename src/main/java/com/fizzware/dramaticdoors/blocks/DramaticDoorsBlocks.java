@@ -34,4 +34,8 @@ public class DramaticDoorsBlocks {
         );
     }
 
+    public static Block[] getBlockList() {
+        return new Block[] { TALL_OAK_DOOR, TALL_SPRUCE_DOOR, TALL_BIRCH_DOOR, TALL_JUNGLE_DOOR, TALL_ACACIA_DOOR, TALL_DARK_OAK_DOOR, TALL_IRON_DOOR };
+    }
+
 }

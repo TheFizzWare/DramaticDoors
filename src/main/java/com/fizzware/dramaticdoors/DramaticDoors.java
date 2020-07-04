@@ -1,7 +1,10 @@
 package com.fizzware.dramaticdoors;
 
+import com.fizzware.dramaticdoors.blocks.DramaticDoorsBlocks;
 import com.fizzware.dramaticdoors.items.DramaticDoorsItems;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,6 +38,10 @@ public class DramaticDoors
     public static final ItemGroup TAB = ItemGroup.REDSTONE;
 
     private void doClientStuff(final FMLClientSetupEvent event) {
+        // Setup Render Types (mainly for transparent doors like Acacia and Jungle)
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList()) {
+            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.getCutout());
+        }
     }
 
     @SubscribeEvent

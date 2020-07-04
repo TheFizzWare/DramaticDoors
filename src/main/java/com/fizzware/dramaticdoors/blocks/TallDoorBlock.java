@@ -309,15 +309,11 @@ public class TallDoorBlock extends Block {
         return PushReaction.DESTROY;
     }
 
-//    public BlockRenderLayer getRenderLayer() {
-//        return BlockRenderLayer.CUTOUT;
-//    }
-
     public BlockState rotate(BlockState state, Rotation rot) {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
 
-//    public BlockState mirror(BlockState state, Mirror mirrorIn) {
-//        return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(FACING))).cycle(HINGE);
-//    }
+    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+        return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(FACING))).func_235896_a_(HINGE);
+    }
 }
