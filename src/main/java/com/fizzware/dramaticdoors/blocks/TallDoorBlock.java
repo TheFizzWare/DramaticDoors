@@ -23,7 +23,7 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
@@ -165,14 +165,14 @@ public class TallDoorBlock extends Block {
         BlockState rightBlockstate = iblockreader.getBlockState(rightPos); // Right Blockstate
         BlockPos rightPosAbove = placePosAbove.offset(rightDir); // Right Up Pos
         BlockState rightAboveBlockstate = iblockreader.getBlockState(rightPosAbove); // Right Up Blockstate
-        int i = (leftBlockstate.func_224756_o(iblockreader, leftPos) ? -1 : 0) + (leftAboveBlockstate.func_224756_o(iblockreader, leftPosAbove) ? -1 : 0) + (rightBlockstate.func_224756_o(iblockreader, rightPos) ? 1 : 0) + (rightAboveBlockstate.func_224756_o(iblockreader, rightPosAbove) ? 1 : 0);
+        int i = (leftBlockstate.func_235785_r_(iblockreader, leftPos) ? -1 : 0) + (leftAboveBlockstate.func_235785_r_(iblockreader, leftPosAbove) ? -1 : 0) + (rightBlockstate.func_235785_r_(iblockreader, rightPos) ? 1 : 0) + (rightAboveBlockstate.func_235785_r_(iblockreader, rightPosAbove) ? 1 : 0);
         boolean leftIsLowerOfSameType = leftBlockstate.getBlock() == this && leftBlockstate.get(THIRD) == TripleBlockPart.LOWER;
         boolean rightIsLowerOfSameType = rightBlockstate.getBlock() == this && rightBlockstate.get(THIRD) == TripleBlockPart.LOWER;
         if ((!leftIsLowerOfSameType || rightIsLowerOfSameType) && i <= 0) {
             if ((!rightIsLowerOfSameType || leftIsLowerOfSameType) && i >= 0) {
                 int j = behindDir.getXOffset();
                 int k = behindDir.getZOffset();
-                Vec3d vec3d = p_208073_1_.getHitVec();
+                Vector3d vec3d = p_208073_1_.getHitVec();
                 double d0 = vec3d.x - (double)placePos.getX();
                 double d1 = vec3d.z - (double)placePos.getZ();
                 return (j >= 0 || !(d1 < 0.5D)) && (j <= 0 || !(d1 > 0.5D)) && (k >= 0 || !(d0 > 0.5D)) && (k <= 0 || !(d0 < 0.5D)) ? DoorHingeSide.LEFT : DoorHingeSide.RIGHT;
@@ -185,14 +185,14 @@ public class TallDoorBlock extends Block {
     }
 
     @Override
-    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
+    public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
         if (this.material == Material.IRON) {
-            return false;
+            return ActionResultType.PASS;
         } else {
-            state = state.cycle(OPEN);
+            state = state.func_235896_a_(OPEN);
             worldIn.setBlockState(pos, state, 10);
             worldIn.playEvent(player, state.get(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-            return true;
+            return ActionResultType.FAIL;
         }
     }
 
@@ -204,12 +204,10 @@ public class TallDoorBlock extends Block {
                 BlockState middle = worldIn.getBlockState(pos.down());
                 BlockState bottom = worldIn.getBlockState(pos.down(2));
                 if (middle.getBlock() == this) {
-                    middle = middle.cycle(OPEN);
-                    worldIn.setBlockState(pos.down(), middle, 10);
+                    worldIn.setBlockState(pos.down(), middle.with(OPEN, Boolean.valueOf(open)), 10);
                 }
                 if (bottom.getBlock() == this) {
-                    bottom = bottom.cycle(OPEN);
-                    worldIn.setBlockState(pos.down(2), bottom, 10);
+                    worldIn.setBlockState(pos.down(2), middle.with(OPEN, Boolean.valueOf(open)), 10);
                 }
             }
             this.playSound(worldIn, pos, open);
@@ -248,16 +246,13 @@ public class TallDoorBlock extends Block {
         BlockState belowState = worldIn.getBlockState(below);
         BlockState below2State = worldIn.getBlockState(below2);
         if (state.get(THIRD) == TripleBlockPart.LOWER) {
-            result = belowState.func_224755_d(worldIn, below, Direction.UP);
-            LOGGER.error("isValid? " + result + " FROM BRANCH 1");
+            result = belowState.isSolidSide(worldIn, below, Direction.UP);
             return result;
         } else if (state.get(THIRD) == TripleBlockPart.MIDDLE) {
             result = belowState.getBlock() == this;
-            LOGGER.error("isValid? " + result + " FROM BRANCH 2");
             return result;
         } else {
             result = belowState.getBlock() == this && below2State.getBlock() == this;
-            LOGGER.error("isValid? " + result + " FROM BRANCH 3");
             return result;
         }
     }
@@ -301,11 +296,10 @@ public class TallDoorBlock extends Block {
     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
         switch(type) {
             case LAND:
+            case AIR:
                 return state.get(OPEN);
             case WATER:
                 return false;
-            case AIR:
-                return state.get(OPEN);
             default:
                 return false;
         }
@@ -315,15 +309,15 @@ public class TallDoorBlock extends Block {
         return PushReaction.DESTROY;
     }
 
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
+//    public BlockRenderLayer getRenderLayer() {
+//        return BlockRenderLayer.CUTOUT;
+//    }
 
     public BlockState rotate(BlockState state, Rotation rot) {
         return state.with(FACING, rot.rotate(state.get(FACING)));
     }
 
-    public BlockState mirror(BlockState state, Mirror mirrorIn) {
-        return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(FACING))).cycle(HINGE);
-    }
+//    public BlockState mirror(BlockState state, Mirror mirrorIn) {
+//        return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(FACING))).cycle(HINGE);
+//    }
 }
