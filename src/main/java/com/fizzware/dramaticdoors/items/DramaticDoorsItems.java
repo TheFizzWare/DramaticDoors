@@ -24,6 +24,8 @@ public class DramaticDoorsItems {
     @ObjectHolder(TallDoorBlock.NAME_ACACIA) public static final Item TALL_ACACIA_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_DARK_OAK) public static final Item TALL_DARK_OAK_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_IRON) public static final Item TALL_IRON_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_CRIMSON) public static final Item TALL_CRIMSON_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_WARPED) public static final Item TALL_WARPED_DOOR = null;
 
     @SubscribeEvent
     public static void registerItems(final RegistryEvent.Register<Item> itemRegistry) {
@@ -34,7 +36,9 @@ public class DramaticDoorsItems {
                 new BlockItem(DramaticDoorsBlocks.TALL_JUNGLE_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_JUNGLE)),
                 new BlockItem(DramaticDoorsBlocks.TALL_ACACIA_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_ACACIA)),
                 new BlockItem(DramaticDoorsBlocks.TALL_DARK_OAK_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_DARK_OAK)),
-                new BlockItem(DramaticDoorsBlocks.TALL_IRON_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_IRON))
+                new BlockItem(DramaticDoorsBlocks.TALL_IRON_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_IRON)),
+                new BlockItem(DramaticDoorsBlocks.TALL_CRIMSON_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_CRIMSON)),
+                new BlockItem(DramaticDoorsBlocks.TALL_WARPED_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_WARPED))
         );
     }
 

@@ -13,5 +13,9 @@
   "item.dramaticdoors.tall_dark_oak_door": "Tall Dark Oak Door",
   "block.dramaticdoors.tall_iron_door": "Tall Iron Door",
   "item.dramaticdoors.tall_iron_door": "Tall Iron Door",
+  "block.dramaticdoors.tall_crimson_door": "Tall Crimson Door",
+  "item.dramaticdoors.tall_crimson_door": "Tall Crimson Door",
+  "block.dramaticdoors.tall_warped_door": "Tall Warped Door",
+  "item.dramaticdoors.tall_warped_door": "Tall Warped Door",
   "itemGroup.tallDoors": "Tall Doors"
 }

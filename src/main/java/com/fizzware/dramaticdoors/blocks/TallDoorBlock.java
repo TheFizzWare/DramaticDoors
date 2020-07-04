@@ -1,9 +1,11 @@
 package com.fizzware.dramaticdoors.blocks;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.fizzware.dramaticdoors.state.properties.DoorBlockStateProperties;
 import com.fizzware.dramaticdoors.state.properties.TripleBlockPart;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.PushReaction;
@@ -18,7 +20,6 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoorHingeSide;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -33,6 +34,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
+@SuppressWarnings("deprecation")
 public class TallDoorBlock extends Block {
 
     public static final String NAME_OAK = "tall_oak_door";
@@ -42,6 +46,16 @@ public class TallDoorBlock extends Block {
     public static final String NAME_ACACIA = "tall_acacia_door";
     public static final String NAME_DARK_OAK = "tall_dark_oak_door";
     public static final String NAME_IRON = "tall_iron_door";
+    public static final String NAME_CRIMSON = "tall_crimson_door";
+    public static final String NAME_WARPED = "tall_warped_door";
+
+    // TODO: Reorganize / Enumerate for BOP, Upgrade Aquatic, etc.
+    public static String[] getNames() {
+        return new String[] {
+                NAME_OAK, NAME_SPRUCE, NAME_BIRCH,
+                NAME_JUNGLE, NAME_ACACIA, NAME_DARK_OAK,
+                NAME_IRON, NAME_CRIMSON, NAME_WARPED };
+    }
 
     public static final EnumProperty<TripleBlockPart> THIRD = DoorBlockStateProperties.TRIPLE_BLOCK_THIRD;
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -79,47 +93,35 @@ public class TallDoorBlock extends Block {
 
     @Override
     public void onBlockHarvested(World worldIn, BlockPos pos, BlockState state, PlayerEntity player) {
-        TripleBlockPart tripleblockpart = state.get(THIRD);
-        BlockPos otherPos1 = pos;
-        BlockPos otherPos2 = pos;
-        ItemStack itemstack = player.getHeldItemMainhand();
-        switch (tripleblockpart) {
-            case LOWER:
-                otherPos1 = pos.up();
-                otherPos2 = pos.up(2);
-                break;
-            case MIDDLE:
-                otherPos1 = pos.down();
-                otherPos2 = pos.up();
-                break;
-            case UPPER:
-                otherPos1 = pos.down(2);
-                otherPos2 = pos.down();
-                break;
-        }
-        BlockState blockstate1 = worldIn.getBlockState(otherPos1);
-        BlockState blockstate2 = worldIn.getBlockState(otherPos2);
-        boolean flag = false;
-        if (blockstate1.getBlock() == this && blockstate1.get(THIRD) != tripleblockpart) {
-            worldIn.setBlockState(otherPos1, Blocks.AIR.getDefaultState(), 35);
-            worldIn.playEvent(player, 2001, otherPos1, Block.getStateId(blockstate1));
-            if (!worldIn.isRemote && !player.isCreative()) {
-                flag = true;
-                Block.spawnDrops(blockstate1, worldIn, otherPos1, (TileEntity)null, player, itemstack);
+        if (!worldIn.isRemote && player.isCreative()) {
+            BlockPos otherPos1 = pos;
+            BlockPos otherPos2 = pos;
+            TripleBlockPart tripleblockpart = state.get(THIRD);
+            switch (tripleblockpart) {
+                case LOWER:
+                    otherPos1 = pos.up();
+                    otherPos2 = pos.up(2);
+                    break;
+                case MIDDLE:
+                    otherPos1 = pos.down();
+                    otherPos2 = pos.up();
+                    break;
+                case UPPER:
+                    otherPos1 = pos.down(2);
+                    otherPos2 = pos.down();
+                    break;
+            }
+            BlockState blockstate1 = worldIn.getBlockState(otherPos1);
+            BlockState blockstate2 = worldIn.getBlockState(otherPos2);
+            if (blockstate1.getBlock() == state.getBlock() && blockstate1.get(THIRD) == TripleBlockPart.LOWER) {
+                worldIn.setBlockState(otherPos1, Blocks.AIR.getDefaultState(), 35);
+                worldIn.playEvent(player, 2001, otherPos1, Block.getStateId(blockstate1));
+            }
+            if (blockstate2.getBlock() == state.getBlock() && blockstate2.get(THIRD) == TripleBlockPart.LOWER) {
+                worldIn.setBlockState(otherPos2, Blocks.AIR.getDefaultState(), 35);
+                worldIn.playEvent(player, 2001, otherPos1, Block.getStateId(blockstate1));
             }
         }
-        if (blockstate2.getBlock() == this && blockstate2.get(THIRD) != tripleblockpart) {
-            worldIn.setBlockState(otherPos1, Blocks.AIR.getDefaultState(), 35);
-            worldIn.playEvent(player, 2001, otherPos1, Block.getStateId(blockstate2));
-            if (!worldIn.isRemote && !player.isCreative()) {
-                flag = true;
-                Block.spawnDrops(blockstate2, worldIn, otherPos1, (TileEntity)null, player, itemstack);
-            }
-        }
-        if (flag) {
-            Block.spawnDrops(state, worldIn, pos, (TileEntity) null, player, itemstack);
-        }
-
         super.onBlockHarvested(worldIn, pos, state, player);
     }
 
@@ -145,7 +147,7 @@ public class TallDoorBlock extends Block {
     }
 
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
         worldIn.setBlockState(pos.up(), state.with(THIRD, TripleBlockPart.MIDDLE), 3);
         worldIn.setBlockState(pos.up().up(), state.with(THIRD, TripleBlockPart.UPPER), 3);
     }
@@ -192,22 +194,22 @@ public class TallDoorBlock extends Block {
             state = state.func_235896_a_(OPEN);
             worldIn.setBlockState(pos, state, 10);
             worldIn.playEvent(player, state.get(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-            return ActionResultType.FAIL;
+            return ActionResultType.func_233537_a_(worldIn.isRemote);
         }
     }
 
     public void toggleDoor(World worldIn, BlockPos pos, boolean open) {
         BlockState blockstate = worldIn.getBlockState(pos);
         if (blockstate.getBlock() == this && blockstate.get(OPEN) != open) {
-            worldIn.setBlockState(pos, blockstate.with(OPEN, Boolean.valueOf(open)), 10);
+            worldIn.setBlockState(pos, blockstate.with(OPEN, open), 10);
             if (blockstate.get(THIRD) == TripleBlockPart.UPPER) {
                 BlockState middle = worldIn.getBlockState(pos.down());
                 BlockState bottom = worldIn.getBlockState(pos.down(2));
                 if (middle.getBlock() == this) {
-                    worldIn.setBlockState(pos.down(), middle.with(OPEN, Boolean.valueOf(open)), 10);
+                    worldIn.setBlockState(pos.down(), middle.with(OPEN, open), 10);
                 }
                 if (bottom.getBlock() == this) {
-                    worldIn.setBlockState(pos.down(2), middle.with(OPEN, Boolean.valueOf(open)), 10);
+                    worldIn.setBlockState(pos.down(2), middle.with(OPEN, open), 10);
                 }
             }
             this.playSound(worldIn, pos, open);
@@ -258,7 +260,7 @@ public class TallDoorBlock extends Block {
     }
 
     private void playSound(World p_196426_1_, BlockPos p_196426_2_, boolean p_196426_3_) {
-        p_196426_1_.playEvent((PlayerEntity)null, p_196426_3_ ? this.getOpenSound() : this.getCloseSound(), p_196426_2_, 0);
+        p_196426_1_.playEvent(null, p_196426_3_ ? this.getOpenSound() : this.getCloseSound(), p_196426_2_, 0);
     }
 
     @Override
@@ -289,17 +291,14 @@ public class TallDoorBlock extends Block {
         }
     }
 
-    public void harvestBlock(World worldIn, PlayerEntity player, BlockPos pos, BlockState state, @Nullable TileEntity te, ItemStack stack) {
-        super.harvestBlock(worldIn, player, pos, Blocks.AIR.getDefaultState(), te, stack);
-    }
-
     public boolean allowsMovement(BlockState state, IBlockReader worldIn, BlockPos pos, PathType type) {
         switch(type) {
             case LAND:
-            case AIR:
                 return state.get(OPEN);
             case WATER:
                 return false;
+            case AIR:
+                return state.get(OPEN);
             default:
                 return false;
         }
@@ -316,4 +315,13 @@ public class TallDoorBlock extends Block {
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.toRotation(state.get(FACING))).func_235896_a_(HINGE);
     }
+
+    // TODO: Figure out if Zombie breaking Tall Doors is feasible... Following obfuscated methods are only used for that.
+//    public static boolean func_235491_a_(World p_235491_0_, BlockPos p_235491_1_) {
+//        return func_235492_h_(p_235491_0_.getBlockState(p_235491_1_));
+//    }
+//
+//    public static boolean func_235492_h_(BlockState p_235492_0_) {
+//        return p_235492_0_.getBlock() instanceof TallDoorBlock && (p_235492_0_.getMaterial() == Material.WOOD || p_235492_0_.getMaterial() == Material.field_237214_y_);
+//    }
 }

@@ -3,25 +3,14 @@ package com.fizzware.dramaticdoors.state.properties;
 import net.minecraft.util.IStringSerializable;
 
 public enum TripleBlockPart implements IStringSerializable {
-    UPPER("upper"),
-    MIDDLE("middle"),
-    LOWER("lower");
+    UPPER,
+    MIDDLE,
+    LOWER;
 
-    private final String name;
+    public String toString() { return this.func_176610_l(); }
 
-    private TripleBlockPart(String name) {
-        this.name = name;
-    }
-
-    public String toString() {
-        return this.getName();
-    }
-
-    public String getName() {
+    public String func_176610_l() {
         return this == UPPER ? "upper" : this == MIDDLE ? "middle" : "lower";
     }
 
-    public String func_176610_l() {
-        return this.name;
-    }
 }
