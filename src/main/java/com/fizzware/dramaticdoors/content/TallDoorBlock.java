@@ -1,17 +1,17 @@
-package com.fizzware.dramaticdoors.blocks;
+package com.fizzware.dramaticdoors.content;
 
 import javax.annotation.Nullable;
 
 import com.fizzware.dramaticdoors.state.properties.DoorBlockStateProperties;
 import com.fizzware.dramaticdoors.state.properties.TripleBlockPart;
 import net.minecraft.block.*;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.PushReaction;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.pathfinding.PathType;
 import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.DirectionProperty;
 import net.minecraft.state.EnumProperty;
@@ -24,7 +24,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
@@ -32,6 +31,8 @@ import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.pathfinding.PathType;
+import net.minecraft.util.math.shapes.ISelectionContext;
 
 public class TallDoorBlock extends Block {
 
@@ -56,7 +57,12 @@ public class TallDoorBlock extends Block {
 
     public TallDoorBlock(Block from) {
         super(Properties.from(from));
-        this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH).with(OPEN, Boolean.FALSE).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.FALSE).with(THIRD, TripleBlockPart.LOWER));
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(OPEN, Boolean.FALSE).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.FALSE).with(THIRD, TripleBlockPart.LOWER));
+    }
+
+    public TallDoorBlock(Properties from) {
+        super(from);
+        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(OPEN, Boolean.FALSE).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.FALSE).with(THIRD, TripleBlockPart.LOWER));
     }
 
     @Override

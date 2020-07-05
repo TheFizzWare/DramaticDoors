@@ -23,3 +23,9 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
+/src/main/resources/assets/dramaticdoors/textures/blocks/crimson_door_whole.png
+/src/main/resources/assets/dramaticdoors/textures/blocks/tall_warped_door_whole.png
+/src/main/resources/assets/dramaticdoors/textures/blocks/driftwood_door_whole.png
+/src/main/resources/assets/dramaticdoors/textures/blocks/wisteria_door_bottom.png
+/src/main/resources/assets/dramaticdoors/textures/blocks/wisteria_door_top.png
+/src/main/resources/assets/dramaticdoors/textures/blocks/tall_wisteria_door_whole.png
