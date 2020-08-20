@@ -73,10 +73,12 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'examplemod', '--all', '--output', file('src/generated/resources/')
+            args '--mod', 'dramaticdoors', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            environment 'target', 'fmluserdevdata'
 
             mods {
-                examplemod {
+                dramaticdoors {
                     source sourceSets.main
                 }
             }

@@ -1,9 +1,11 @@
 package com.fizzware.dramaticdoors.content;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import com.fizzware.dramaticdoors.state.properties.DoorBlockStateProperties;
 import com.fizzware.dramaticdoors.state.properties.TripleBlockPart;
+import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.*;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.material.Material;
@@ -34,15 +36,10 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraft.pathfinding.PathType;
 import net.minecraft.util.math.shapes.ISelectionContext;
 
+@SuppressWarnings("deprecation")
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 public class TallDoorBlock extends Block {
-
-    public static final String NAME_OAK = "tall_oak_door";
-    public static final String NAME_SPRUCE = "tall_spruce_door";
-    public static final String NAME_BIRCH = "tall_birch_door";
-    public static final String NAME_JUNGLE = "tall_jungle_door";
-    public static final String NAME_ACACIA = "tall_acacia_door";
-    public static final String NAME_DARK_OAK = "tall_dark_oak_door";
-    public static final String NAME_IRON = "tall_iron_door";
 
     public static final EnumProperty<TripleBlockPart> THIRD = DoorBlockStateProperties.TRIPLE_BLOCK_THIRD;
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
@@ -53,12 +50,6 @@ public class TallDoorBlock extends Block {
     protected static final VoxelShape NORTH_AABB = Block.makeCuboidShape(0.0D, 0.0D, 13.0D, 16.0D, 16.0D, 16.0D);
     protected static final VoxelShape WEST_AABB = Block.makeCuboidShape(13.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     protected static final VoxelShape EAST_AABB = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 3.0D, 16.0D, 16.0D);
-
-
-    public TallDoorBlock(Block from) {
-        super(Properties.from(from));
-        this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH).with(OPEN, Boolean.FALSE).with(HINGE, DoorHingeSide.LEFT).with(POWERED, Boolean.FALSE).with(THIRD, TripleBlockPart.LOWER));
-    }
 
     public TallDoorBlock(Properties from) {
         super(from);
@@ -111,7 +102,7 @@ public class TallDoorBlock extends Block {
             worldIn.playEvent(player, 2001, otherPos1, Block.getStateId(blockstate1));
             if (!worldIn.isRemote && !player.isCreative()) {
                 flag = true;
-                Block.spawnDrops(blockstate1, worldIn, otherPos1, (TileEntity)null, player, itemstack);
+                Block.spawnDrops(blockstate1, worldIn, otherPos1, null, player, itemstack);
             }
         }
         if (blockstate2.getBlock() == this && blockstate2.get(THIRD) != tripleblockpart) {
@@ -119,7 +110,7 @@ public class TallDoorBlock extends Block {
             worldIn.playEvent(player, 2001, otherPos1, Block.getStateId(blockstate2));
             if (!worldIn.isRemote && !player.isCreative()) {
                 flag = true;
-                Block.spawnDrops(blockstate2, worldIn, otherPos1, (TileEntity)null, player, itemstack);
+                Block.spawnDrops(blockstate2, worldIn, otherPos1, null, player, itemstack);
             }
         }
         if (flag) {

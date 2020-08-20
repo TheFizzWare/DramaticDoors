@@ -52,6 +52,7 @@ public enum DoorMaterial {
 
     private final String REGISTRY_NAME;
     private final Block BLOCK;
+//    private final Block INGREDIENT;
     private final Item ITEM;
     private final Material MATERIAL;
     private final MaterialColor COLOR;
