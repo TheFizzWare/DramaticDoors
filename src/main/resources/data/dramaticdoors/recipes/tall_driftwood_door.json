@@ -8,11 +8,11 @@
   ],
   "key": {
     "D": {
-      "item": "minecraft:acacia_door"
+      "item": "upgrade_aquatic:driftwood_door"
     }
   },
   "result": {
-    "item": "dramaticdoors:tall_acacia_door",
+    "item": "dramaticdoors:tall_driftwood_door",
     "count": 2
   }
 }

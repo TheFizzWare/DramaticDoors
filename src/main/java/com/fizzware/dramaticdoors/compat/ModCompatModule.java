@@ -20,7 +20,7 @@ public enum ModCompatModule implements IStringSerializable {
     ATMOSPHERIC("atmospheric", true),
     BLOOMFUL("bloomful", true),
     BOP("biomesoplenty", true),
-    UPGRADE_AQUATIC("upgrade_aquatic", true);
+    UPGRADE_AQUATIC("upgrade_aquatic", false);
 
     private final String MOD_ID;
     private boolean LOADED;

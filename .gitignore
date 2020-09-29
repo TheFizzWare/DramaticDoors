@@ -32,3 +32,5 @@ forge*changelog.txt
 /src/main/resources/assets/dramaticdoors/textures/blocks/tall_river_door_whole.png
 /src/main/resources/assets/dramaticdoors/textures/blocks/river_door_top.png
 /src/main/resources/assets/dramaticdoors/textures/blocks/river_door_bottom.png
+/src/generated/
+/src/main/generated_resources/

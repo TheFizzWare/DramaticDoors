@@ -1,9 +1,10 @@
 modLoader="javafml"
 loaderVersion="[28,)"
+license="MIT"
 
 [[mods]]
     modId="dramaticdoors"
-    version="1.14.4-1.0.1"
+    version="1.14.4-1.3.0"
     displayName="Dramatic Doors"
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dramatic-doors"
     issueTrackerURL="https://github.com/TheFizzWare/DramaticDoors/issues"

@@ -1,0 +1,70 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "dramaticdoors:tall_tooth_door"
+    ]
+  },
+  "criteria": {
+    "placed_block_tall_oak_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_oak_door"
+      }
+    },
+    "placed_block_tall_iron_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_iron_door"
+      }
+    },
+    "placed_block_tall_spruce_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_spruce_door"
+      }
+    },
+    "placed_block_tall_birch_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_birch_door"
+      }
+    },
+    "placed_block_tall_jungle_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_jungle_door"
+      }
+    },
+    "placed_block_tall_acacia_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_acacia_door"
+      }
+    },
+    "placed_block_tall_dark_oak_door": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "dramaticdoors:tall_dark_oak_door"
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "dramaticdoors:tall_tooth_door"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "placed_block_tall_oak_door",
+      "placed_block_tall_iron_door",
+      "placed_block_tall_spruce_door",
+      "placed_block_tall_birch_door",
+      "placed_block_tall_jungle_door",
+      "placed_block_tall_acacia_door",
+      "placed_block_tall_dark_oak_door",
+      "has_the_recipe"
+    ]
+  ]
+}
