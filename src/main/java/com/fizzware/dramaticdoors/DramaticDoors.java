@@ -1,7 +1,11 @@
 package com.fizzware.dramaticdoors;
 
+import com.fizzware.dramaticdoors.compat.ModCompatModule;
+import com.fizzware.dramaticdoors.compat.ModCompatModule.*;
+import com.fizzware.dramaticdoors.init.DoorMaterial;
 import com.fizzware.dramaticdoors.util.Ref;
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -27,8 +31,7 @@ public class DramaticDoors
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-//    private void setup(final FMLCommonSetupEvent event)
-//    {
+//    private void setup(final FMLCommonSetupEvent event) {
 //    }
 
 //    private void doClientStuff(final FMLClientSetupEvent event) {

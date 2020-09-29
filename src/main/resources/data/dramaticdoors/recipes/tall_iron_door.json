@@ -1,12 +1,13 @@
 {
   "type": "minecraft:crafting_shaped",
+  "group": "tall_door",
   "pattern": [
-    "#",
-    "#",
-    "#"
+    "D",
+    "D",
+    "D"
   ],
   "key": {
-    "#": {
+    "D": {
       "item": "minecraft:iron_door"
     }
   },
