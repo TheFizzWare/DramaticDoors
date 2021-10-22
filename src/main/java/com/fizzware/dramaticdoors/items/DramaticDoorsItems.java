@@ -3,9 +3,10 @@ package com.fizzware.dramaticdoors.items;
 import com.fizzware.dramaticdoors.DramaticDoors;
 import com.fizzware.dramaticdoors.blocks.TallDoorBlock;
 import com.fizzware.dramaticdoors.blocks.DramaticDoorsBlocks;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -15,7 +16,7 @@ import net.minecraftforge.registries.ObjectHolder;
 @ObjectHolder(DramaticDoors.MOD_ID)
 public class DramaticDoorsItems {
 
-    private static final Item.Properties PROPERTIES = new Item.Properties().group(DramaticDoors.TAB);
+    private static final Item.Properties PROPERTIES = new Item.Properties().tab(DramaticDoors.TAB);
 
     @ObjectHolder(TallDoorBlock.NAME_OAK) public static final Item TALL_OAK_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_SPRUCE) public static final Item TALL_SPRUCE_DOOR = null;

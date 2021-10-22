@@ -1,21 +1,19 @@
 package com.fizzware.dramaticdoors;
 
 import com.fizzware.dramaticdoors.blocks.DramaticDoorsBlocks;
-import com.fizzware.dramaticdoors.items.DramaticDoorsItems;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -36,12 +34,12 @@ public class DramaticDoors
     {
     }
 
-    public static final ItemGroup TAB = ItemGroup.REDSTONE;
+    public static final CreativeModeTab TAB = CreativeModeTab.TAB_REDSTONE;
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // Setup Render Types (mainly for transparent doors like Acacia and Jungle)
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.VANILLA_TALL)) {
-            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.getCutout());
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
             LOGGER.debug(doorBlock.getRegistryName());
         }
     }

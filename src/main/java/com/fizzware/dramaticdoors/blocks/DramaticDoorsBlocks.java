@@ -1,9 +1,10 @@
 package com.fizzware.dramaticdoors.blocks;
 
 import com.fizzware.dramaticdoors.DramaticDoors;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -50,7 +51,7 @@ public class DramaticDoorsBlocks {
                 return new Block[] {
                         Blocks.OAK_DOOR, Blocks.SPRUCE_DOOR, Blocks.BIRCH_DOOR,
                         Blocks.JUNGLE_DOOR, Blocks.ACACIA_DOOR, Blocks.DARK_OAK_DOOR,
-                        Blocks.IRON_DOOR, Blocks.field_235360_mS_, Blocks.field_235361_mT_ };
+                        Blocks.IRON_DOOR, Blocks.CRIMSON_DOOR, Blocks.WARPED_DOOR };
                 // TODO: Update mappings. Crimson is mS and Warped is mT
             case VANILLA_TALL:
                 return new Block[] {
