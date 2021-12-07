@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "enhanced_mushrooms:glowshroom_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_glowshroom_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:enhanced_mushrooms_mod_installed"
+    }
+  ]
+}

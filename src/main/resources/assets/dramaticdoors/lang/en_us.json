@@ -17,5 +17,65 @@
   "item.dramaticdoors.tall_crimson_door": "Tall Crimson Door",
   "block.dramaticdoors.tall_warped_door": "Tall Warped Door",
   "item.dramaticdoors.tall_warped_door": "Tall Warped Door",
+  
+  "block.dramaticdoors.tall_aspen_door": "Tall Aspen Door",
+  "item.dramaticdoors.tall_aspen_door": "Tall Aspen Door",
+  "block.dramaticdoors.tall_grimwood_door": "Tall Grimwood Door",
+  "item.dramaticdoors.tall_grimwood_door": "Tall Grimwood Door",
+  "block.dramaticdoors.tall_kousa_door": "Tall Kousa Door",
+  "item.dramaticdoors.tall_kousa_door": "Tall Kousa Door",
+  "block.dramaticdoors.tall_morado_door": "Tall Morado Door",
+  "item.dramaticdoors.tall_morado_door": "Tall Morado Door",
+  "block.dramaticdoors.tall_rosewood_door": "Tall Rosewood Door",
+  "item.dramaticdoors.tall_rosewood_door": "Tall Rosewood Door",
+  "block.dramaticdoors.tall_yucca_door": "Tall Yucca Door",
+  "item.dramaticdoors.tall_yucca_door": "Tall Yucca Door",
+  
+  "block.dramaticdoors.tall_bamboo_door": "Tall Bamboo Door",
+  "item.dramaticdoors.tall_bamboo_door": "Tall Bamboo Door",
+  
+  "block.dramaticdoors.tall_maple_door": "Tall Maple Door",
+  "item.dramaticdoors.tall_maple_door": "Tall Maple Door",
+  
+  "block.dramaticdoors.tall_honeycomb_door": "Tall Honeycomb Door",
+  "item.dramaticdoors.tall_honeycomb_door": "Tall Honeycomb Door",
+  
+  "block.dramaticdoors.tall_poise_door": "Tall Poise Door",
+  "item.dramaticdoors.tall_poise_door": "Tall Poise Door",
+  
+  "block.dramaticdoors.tall_cherry_door": "Tall Cherry Door",
+  "item.dramaticdoors.tall_cherry_door": "Tall Cherry Door",
+  "block.dramaticdoors.tall_wisteria_door": "Tall Wisteria Door",
+  "item.dramaticdoors.tall_wisteria_door": "Tall Wisteria Door",
+  "block.dramaticdoors.tall_willow_door": "Tall Willow Door",
+  "item.dramaticdoors.tall_willow_door": "Tall Willow Door",
+  
+  "block.dramaticdoors.tall_driftwood_door": "Tall Driftwood Door",
+  "item.dramaticdoors.tall_driftwood_door": "Tall Driftwood Door",
+  "block.dramaticdoors.tall_river_door": "Tall River Door",
+  "item.dramaticdoors.tall_river_door": "Tall River Door",
+  "block.dramaticdoors.tall_glass_door": "Tall Glass Door",
+  "item.dramaticdoors.tall_glass_door": "Tall Glass Door",
+  "block.dramaticdoors.tall_tooth_door": "Tall Tooth Door",
+  "item.dramaticdoors.tall_tooth_door": "Tall Tooth Door",
+
+  "block.dramaticdoors.tall_jacaranda_door": "Tall Jacaranda Door",
+  "item.dramaticdoors.tall_jacarand_door": "Tall Jacaranda Door",
+  "block.dramaticdoors.tall_redbud_door": "Tall Redbud Door",
+  "item.dramaticdoors.tall_redbud_door": "Tall Redbud Door",
+
+  "block.dramaticdoors.tall_cypress_door": "Tall Cypress Door",
+  "item.dramaticdoors.tall_cypress_door": "Tall Cypress Door",
+
+  "block.dramaticdoors.tall_brown_mushroom_door": "Tall Brown Mushroom Door",
+  "item.dramaticdoors.tall_brown_mushroom_door": "Tall Brown Mushroom Door",
+  "block.dramaticdoors.tall_red_mushroom_door": "Tall Red Mushroom Door",
+  "item.dramaticdoors.tall_red_mushroom_door": "Tall Red Mushroom Door",
+  "block.dramaticdoors.tall_glowshroom_door": "Tall Glowshroom Door",
+  "item.dramaticdoors.tall_glowshroom_door": "Tall Glowshroom Door",
+  
+  "block.dramaticdoors.tall_azure_door": "Tall Azure Door",
+  "item.dramaticdoors.tall_azure_door": "Tall Azure Door",
+  
   "itemGroup.tallDoors": "Tall Doors"
 }
