@@ -91,6 +91,21 @@ public class TallDoorBlock extends Block {
     public static final String NAME_GLASS = "tall_glass_door";
     public static final String NAME_TOOTH = "tall_tooth_door";
     
+    //Abundance
+    public static final String NAME_JACARANDA = "tall_jacaranda_door";
+    public static final String NAME_REDBUD = "tall_redbud_door";
+    
+    //Bayou Blues
+    public static final String NAME_CYPRESS = "tall_cypress_door";
+    
+    //Enhanced Mushrooms
+    public static final String NAME_BROWN_MUSHROOM = "tall_brown_mushroom_door";
+    public static final String NAME_RED_MUSHROOM = "tall_red_mushroom_door";
+    public static final String NAME_GLOWSHROOM = "tall_glowshroom_door";
+    
+    //Outer End
+    public static final String NAME_AZURE = "tall_azure_door";
+    
     public static String[] getNames(DoorSeries series) {
     	switch(series) {
 		case VANILLA:
@@ -112,8 +127,16 @@ public class TallDoorBlock extends Block {
 	        return new String[] { NAME_CHERRY, NAME_WISTERIA, NAME_WILLOW };
 		case UPGRADE_AQUATIC:
 	        return new String[] { NAME_DRIFTWOOD, NAME_RIVER, NAME_GLASS, NAME_TOOTH };
+		case ABUNDANCE:
+	        return new String[] { NAME_JACARANDA, NAME_REDBUD };
+		case BAYOU_BLUES:
+	        return new String[] { NAME_CYPRESS };
+		case ENH_MUSHROOMS:
+	        return new String[] { NAME_BROWN_MUSHROOM, NAME_RED_MUSHROOM, NAME_GLOWSHROOM };
+		case OUTER_END:
+	        return new String[] { NAME_AZURE };
 		default:
-	        throw new NotImplementedException("Don't use the tall version of DoorSeries. Also, Biomes o Plenty not implemented");
+	        throw new NotImplementedException("Don't use the tall version of DoorSeries. Also, Biomes o Plenty & Twilight Forest not implemented");
     	}
     }
 

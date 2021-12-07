@@ -58,6 +58,24 @@
   "item.dramaticdoors.tall_glass_door": "Tall Glass Door",
   "block.dramaticdoors.tall_tooth_door": "Tall Tooth Door",
   "item.dramaticdoors.tall_tooth_door": "Tall Tooth Door",
+
+  "block.dramaticdoors.tall_jacaranda_door": "Tall Jacaranda Door",
+  "item.dramaticdoors.tall_jacarand_door": "Tall Jacaranda Door",
+  "block.dramaticdoors.tall_redbud_door": "Tall Redbud Door",
+  "item.dramaticdoors.tall_redbud_door": "Tall Redbud Door",
+
+  "block.dramaticdoors.tall_cypress_door": "Tall Cypress Door",
+  "item.dramaticdoors.tall_cypress_door": "Tall Cypress Door",
+
+  "block.dramaticdoors.tall_brown_mushroom_door": "Tall Brown Mushroom Door",
+  "item.dramaticdoors.tall_brown_mushroom_door": "Tall Brown Mushroom Door",
+  "block.dramaticdoors.tall_red_mushroom_door": "Tall Red Mushroom Door",
+  "item.dramaticdoors.tall_red_mushroom_door": "Tall Red Mushroom Door",
+  "block.dramaticdoors.tall_glowshroom_door": "Tall Glowshroom Door",
+  "item.dramaticdoors.tall_glowshroom_door": "Tall Glowshroom Door",
+  
+  "block.dramaticdoors.tall_azure_door": "Tall Azure Door",
+  "item.dramaticdoors.tall_azure_door": "Tall Azure Door",
   
   "itemGroup.tallDoors": "Tall Doors"
 }

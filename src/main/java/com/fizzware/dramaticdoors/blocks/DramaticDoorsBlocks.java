@@ -17,6 +17,7 @@ import org.apache.commons.lang3.NotImplementedException;
 @ObjectHolder(DramaticDoors.MOD_ID)
 public class DramaticDoorsBlocks {
 
+	//Vanilla
     @ObjectHolder(TallDoorBlock.NAME_OAK) public static final Block TALL_OAK_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_SPRUCE) public static final Block TALL_SPRUCE_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_BIRCH) public static final Block TALL_BIRCH_DOOR = null;
@@ -57,11 +58,28 @@ public class DramaticDoorsBlocks {
     @ObjectHolder(TallDoorBlock.NAME_RIVER) public static final Block TALL_RIVER_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_GLASS) public static final Block TALL_GLASS_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_TOOTH) public static final Block TALL_TOOTH_DOOR = null;
+    
+    //Abundance
+    @ObjectHolder(TallDoorBlock.NAME_JACARANDA) public static final Block TALL_JACARANDA_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_REDBUD) public static final Block TALL_REDBUD_DOOR = null;
+    
+    //Bayou Blues
+    @ObjectHolder(TallDoorBlock.NAME_CYPRESS) public static final Block TALL_CYPRESS_DOOR = null;
+    
+    //Enhanced Mushrooms
+    @ObjectHolder(TallDoorBlock.NAME_BROWN_MUSHROOM) public static final Block TALL_BROWN_MUSHROOM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_RED_MUSHROOM) public static final Block TALL_RED_MUSHROOM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_GLOWSHROOM) public static final Block TALL_GLOWSHROOM_DOOR = null;
+    
+    //Outer End
+    @ObjectHolder(TallDoorBlock.NAME_AZURE) public static final Block TALL_AZURE_DOOR = null;   
+    
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> blockRegistry) {
         IForgeRegistry<Block> registry = blockRegistry.getRegistry();
         addBlockSeries(registry, DoorSeries.VANILLA);
         //Conditionally add doors based on whether mods are loaded.
+        //Abnormals
         if (ModList.get().isLoaded("atmospheric")) {
         	addBlockSeries(registry, DoorSeries.ATMOSPHERIC);
         }
@@ -82,6 +100,20 @@ public class DramaticDoorsBlocks {
         }
         if (ModList.get().isLoaded("upgrade_aquatic")) {
         	addBlockSeries(registry, DoorSeries.UPGRADE_AQUATIC);
+        }
+        //Team Aurora
+        if (ModList.get().isLoaded("abundance")) {
+        	addBlockSeries(registry, DoorSeries.ABUNDANCE);
+        }
+        if (ModList.get().isLoaded("bayou_blues")) {
+        	addBlockSeries(registry, DoorSeries.BAYOU_BLUES);
+        }
+        if (ModList.get().isLoaded("enhanced_mushrooms")) {
+        	addBlockSeries(registry, DoorSeries.ENH_MUSHROOMS);
+        }
+        //Miscellaneous
+        if (ModList.get().isLoaded("outer_end")) {
+        	addBlockSeries(registry, DoorSeries.OUTER_END);
         }
     }
 
@@ -106,10 +138,7 @@ public class DramaticDoorsBlocks {
                         TALL_OAK_DOOR, TALL_SPRUCE_DOOR, TALL_BIRCH_DOOR,
                         TALL_JUNGLE_DOOR, TALL_ACACIA_DOOR, TALL_DARK_OAK_DOOR,
                         TALL_IRON_DOOR, TALL_CRIMSON_DOOR, TALL_WARPED_DOOR };
-            case BOP:
-                throw new NotImplementedException("Biomes O' Plenty not yet supported."); // TODO BOP (Many)
-            case BOP_TALL:
-                throw new NotImplementedException("Biomes O' Plenty not yet supported."); // TODO BOP (Many Tall)
+            //Abnormals Mods
             case ATMOSPHERIC:
             	return new Block[] { 
             			Registry.BLOCK.get(new ResourceLocation("atmospheric", "aspen_door")),
@@ -151,6 +180,38 @@ public class DramaticDoorsBlocks {
             			Registry.BLOCK.get(new ResourceLocation("upgrade_aquatic", "tooth_door")) };
             case UPGRADE_AQUATIC_TALL:
             	return new Block[] { TALL_DRIFTWOOD_DOOR, TALL_RIVER_DOOR, TALL_GLASS_DOOR, TALL_TOOTH_DOOR };
+            //Team Aurora Mods
+            case ABUNDANCE:
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("abundance", "jacaranda_door")),
+            			Registry.BLOCK.get(new ResourceLocation("abundance", "redbud_door")) };
+            case ABUNDANCE_TALL:
+            	return new Block[] { TALL_JACARANDA_DOOR, TALL_REDBUD_DOOR };
+            case BAYOU_BLUES:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("bayou_blues", "cypress_door")) };
+            case BAYOU_BLUES_TALL:
+            	return new Block[] { TALL_CYPRESS_DOOR };
+            case ENH_MUSHROOMS:
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "brown_mushroom_door")),
+            			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "red_mushroom_door")),
+            			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "glowshroom_door")) };
+            case ENH_MUSHROOMS_TALL:
+            	return new Block[] { TALL_BROWN_MUSHROOM_DOOR, TALL_RED_MUSHROOM_DOOR, TALL_GLOWSHROOM_DOOR };
+            //Miscellaneous
+            case OUTER_END:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("outer_end", "azure_door")) };
+            case OUTER_END_TALL:
+            	return new Block[] { TALL_AZURE_DOOR };
+            case BOP:
+                throw new NotImplementedException("Biomes O' Plenty not yet supported."); // TODO BOP (Many)
+            case BOP_TALL:
+                throw new NotImplementedException("Biomes O' Plenty not yet supported."); // TODO BOP (Many Tall)
+            case TWILIGHT_FOREST:
+                throw new NotImplementedException("Twilight Forest not yet supported."); // TODO Twilight Forest (Many)
+            case TWILIGHT_FOREST_TALL:
+                throw new NotImplementedException("Twilight Forest not yet supported."); // TODO Twilight Forest (Many Tall)
+            //Failsafe
             default:
                 return new Block[] {};
         }
@@ -161,6 +222,8 @@ public class DramaticDoorsBlocks {
         VANILLA_TALL,
         BOP,
         BOP_TALL,
+        TWILIGHT_FOREST,
+        TWILIGHT_FOREST_TALL,
         ATMOSPHERIC,
         ATMOSPHERIC_TALL,
         AUTUMNITY,
@@ -174,6 +237,14 @@ public class DramaticDoorsBlocks {
         ENVIRONMENTAL,
         ENVIRONMENTAL_TALL,
         UPGRADE_AQUATIC,
-        UPGRADE_AQUATIC_TALL
+        UPGRADE_AQUATIC_TALL,
+        ABUNDANCE,
+        ABUNDANCE_TALL,
+        BAYOU_BLUES,
+        BAYOU_BLUES_TALL,
+        ENH_MUSHROOMS,
+        ENH_MUSHROOMS_TALL,
+        OUTER_END,
+        OUTER_END_TALL
     }
 }

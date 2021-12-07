@@ -59,6 +59,22 @@ public class DramaticDoorsItems {
     @ObjectHolder(TallDoorBlock.NAME_RIVER) public static final Item TALL_RIVER_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_GLASS) public static final Item TALL_GLASS_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_TOOTH) public static final Item TALL_TOOTH_DOOR = null;
+    
+    //Abundance
+    @ObjectHolder(TallDoorBlock.NAME_JACARANDA) public static final Item TALL_JACARANDA_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_REDBUD) public static final Item TALL_REDBUD_DOOR = null;
+    
+    //Bayou Blues
+    @ObjectHolder(TallDoorBlock.NAME_CYPRESS) public static final Item TALL_CYPRESS_DOOR = null;
+    
+    //Enhanced Mushrooms
+    @ObjectHolder(TallDoorBlock.NAME_BROWN_MUSHROOM) public static final Item TALL_BROWN_MUSHROOM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_RED_MUSHROOM) public static final Item TALL_RED_MUSHROOM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_GLOWSHROOM) public static final Item TALL_GLOWSHROOM_DOOR = null;
+    
+    //Outer End
+    @ObjectHolder(TallDoorBlock.NAME_AZURE) public static final Item TALL_AZURE_DOOR = null;   
+    
     @SubscribeEvent
     public static void registerItems(final RegistryEvent.Register<Item> itemRegistry) {
         itemRegistry.getRegistry().registerAll(
@@ -116,6 +132,29 @@ public class DramaticDoorsItems {
                 new BlockItem(DramaticDoorsBlocks.TALL_RIVER_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_RIVER)),
                 new BlockItem(DramaticDoorsBlocks.TALL_GLASS_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_GLASS)),
                 new BlockItem(DramaticDoorsBlocks.TALL_TOOTH_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_TOOTH))
+            );
+        }
+        if (ModList.get().isLoaded("abundance")) {
+        	itemRegistry.getRegistry().registerAll(
+                new BlockItem(DramaticDoorsBlocks.TALL_JACARANDA_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_JACARANDA)),
+                new BlockItem(DramaticDoorsBlocks.TALL_REDBUD_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_REDBUD))
+            );
+        }
+        if (ModList.get().isLoaded("bayou_blues")) {
+        	itemRegistry.getRegistry().registerAll(
+                new BlockItem(DramaticDoorsBlocks.TALL_CYPRESS_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_CYPRESS))
+            );
+        }
+        if (ModList.get().isLoaded("enhanced_mushrooms")) {
+        	itemRegistry.getRegistry().registerAll(
+                new BlockItem(DramaticDoorsBlocks.TALL_BROWN_MUSHROOM_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_BROWN_MUSHROOM)),
+                new BlockItem(DramaticDoorsBlocks.TALL_RED_MUSHROOM_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_RED_MUSHROOM)),
+                new BlockItem(DramaticDoorsBlocks.TALL_GLOWSHROOM_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_GLOWSHROOM))
+            );
+        }
+        if (ModList.get().isLoaded("outer_end")) {
+        	itemRegistry.getRegistry().registerAll(
+                new BlockItem(DramaticDoorsBlocks.TALL_AZURE_DOOR, PROPERTIES).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_AZURE))
             );
         }
     }
