@@ -4,7 +4,7 @@ license="MIT"
 
 [[mods]]
     modId="dramaticdoors"
-    version="1.16.5-1.3.1"
+    version="1.16.5-1.4.0"
     displayName="Dramatic Doors"
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dramatic-doors"
     issueTrackerURL="https://github.com/TheFizzWare/DramaticDoors/issues"
@@ -24,12 +24,28 @@ license="MIT"
     These 3-block-high doors come in every vanilla variety;
     Oak, Spruce, Birch, Acacia, Dark Oak, Jungle, Iron, and now the new Nether Doors: Crimson and Warped!
     Craft one by putting 3 of the vanilla variant vertically in a crafting table.
+    
+    Now supports certain mods that add wood types!
     '''
 
 [[dependencies.dramaticdoors]]
     modId="forge"
     mandatory=true
     versionRange="[36,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="biomesoplenty"
+    mandatory=false
+    versionRange="[1.16.5,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="twilightforest"
+    mandatory=false
+    versionRange="[4.0.546,)"
     ordering="AFTER"
     side="BOTH"
 

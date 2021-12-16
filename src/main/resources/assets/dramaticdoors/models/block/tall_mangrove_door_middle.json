@@ -1,0 +1,8 @@
+{
+    "parent": "dramaticdoors:block/door_middle",
+    "textures": {
+        "bottom": "dramaticdoors:blocks/tall_mangrove_door_middle",
+        "middle": "dramaticdoors:blocks/tall_mangrove_door_middle",
+        "top": "dramaticdoors:blocks/tall_mangrove_door_middle"
+    }
+}
