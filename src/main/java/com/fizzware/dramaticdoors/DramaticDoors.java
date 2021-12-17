@@ -6,11 +6,13 @@ import com.fizzware.dramaticdoors.crafting.conditions.AtmosphericModInstalledCon
 import com.fizzware.dramaticdoors.crafting.conditions.AutumnityModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.BambooBlocksModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.BayouBluesModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.BiomesOPlentyModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.BuzzierBeesModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EndergeticModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EnhancedMushroomsModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EnvironmentalModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.OuterEndModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.TwilightForestModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.UpgradeAquaticModInstalledCondition;
 
 import net.minecraft.world.item.CreativeModeTab;
@@ -27,14 +29,11 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
 
 @Mod("dramaticdoors")
 public class DramaticDoors
 {
     public static final String MOD_ID = "dramaticdoors";
-    //private static final Logger LOGGER = LogManager.getLogger();
 
     public DramaticDoors() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -45,6 +44,9 @@ public class DramaticDoors
 
     private void setup(final FMLCommonSetupEvent event)
     {
+    	CraftingHelper.register(new BiomesOPlentyModInstalledCondition.Serializer());
+    	CraftingHelper.register(new TwilightForestModInstalledCondition.Serializer());
+    	
     	CraftingHelper.register(new AtmosphericModInstalledCondition.Serializer());
     	CraftingHelper.register(new AutumnityModInstalledCondition.Serializer());
     	CraftingHelper.register(new BambooBlocksModInstalledCondition.Serializer());

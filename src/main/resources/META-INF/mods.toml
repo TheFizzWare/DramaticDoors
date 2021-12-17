@@ -34,9 +34,16 @@ license="MIT"
     side="BOTH"
 
 [[dependencies.dramaticdoors]]
-    modId="forge"
-    mandatory=true
-    versionRange="[36,)"
+    modId="biomesoplenty"
+    mandatory=false
+    versionRange="[1.17.1,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="twilightforest"
+    mandatory=false
+    versionRange="[4.0.860,)"
     ordering="AFTER"
     side="BOTH"
 

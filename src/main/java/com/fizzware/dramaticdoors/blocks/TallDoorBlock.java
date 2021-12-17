@@ -65,6 +65,29 @@ public class TallDoorBlock extends Block {
     public static final String NAME_CRIMSON = "tall_crimson_door";
     public static final String NAME_WARPED = "tall_warped_door";
 
+    //Biomes o' Plenty (Given name prefix to avoid conflicts)
+    public static final String NAME_BOP_CHERRY = "tall_bop_cherry_door";
+    public static final String NAME_BOP_DEAD = "tall_bop_dead_door";
+    public static final String NAME_BOP_FIR = "tall_bop_fir_door";
+    public static final String NAME_BOP_HELLBARK = "tall_bop_hellbark_door";
+    public static final String NAME_BOP_JACARANDA = "tall_bop_jacaranda_door";
+    public static final String NAME_BOP_MAGIC = "tall_bop_magic_door";
+    public static final String NAME_BOP_MAHOGANY = "tall_bop_mahogany_door";
+    public static final String NAME_BOP_PALM = "tall_bop_palm_door";
+    public static final String NAME_BOP_REDWOOD = "tall_bop_redwood_door";
+    public static final String NAME_BOP_UMBRAN = "tall_bop_umbran_door";
+    public static final String NAME_BOP_WILLOW = "tall_bop_willow_door";
+    
+    //Twilight Forest
+    public static final String NAME_CANOPY = "tall_canopy_door";
+    public static final String NAME_DARKWOOD = "tall_darkwood_door";
+    public static final String NAME_MANGROVE = "tall_mangrove_door";
+    public static final String NAME_MINEWOOD = "tall_minewood_door";
+    public static final String NAME_SORTINGWOOD = "tall_sortingwood_door";
+    public static final String NAME_TIMEWOOD = "tall_timewood_door";
+    public static final String NAME_TRANSWOOD = "tall_transwood_door";
+    public static final String NAME_TWILIGHT_OAK = "tall_twilight_oak_door";
+    
     //Atmospheric
     public static final String NAME_ASPEN = "tall_aspen_door";
     public static final String NAME_GRIMWOOD = "tall_grimwood_door";
@@ -118,6 +141,14 @@ public class TallDoorBlock extends Block {
     	                NAME_OAK, NAME_SPRUCE, NAME_BIRCH,
     	                NAME_JUNGLE, NAME_ACACIA, NAME_DARK_OAK,
     	                NAME_IRON, NAME_CRIMSON, NAME_WARPED };
+		    case BOP:
+		        return new String[] {
+		                NAME_BOP_CHERRY, NAME_BOP_DEAD, NAME_BOP_FIR, NAME_BOP_HELLBARK, NAME_BOP_JACARANDA, NAME_BOP_MAGIC,
+		                NAME_BOP_MAHOGANY, NAME_BOP_PALM, NAME_BOP_REDWOOD, NAME_BOP_UMBRAN, NAME_BOP_WILLOW };
+		    case TWILIGHT_FOREST:
+		        return new String[] {
+		                NAME_CANOPY, NAME_DARKWOOD, NAME_MANGROVE, NAME_MINEWOOD,
+		                NAME_SORTINGWOOD, NAME_TIMEWOOD, NAME_TRANSWOOD, NAME_TWILIGHT_OAK };
     		case ATMOSPHERIC:
     	        return new String[] { NAME_ASPEN, NAME_GRIMWOOD, NAME_KOUSA, NAME_MORADO, NAME_ROSEWOOD, NAME_YUCCA };
     		case AUTUMNITY:
@@ -141,7 +172,7 @@ public class TallDoorBlock extends Block {
     		case OUTER_END:
     	        return new String[] { NAME_AZURE };
     		default:
-    	        throw new NotImplementedException("Don't use the tall version of DoorSeries. Also, Biomes o Plenty & Twilight Forest not implemented");
+    	        throw new NotImplementedException("Don't use the tall version of DoorSeries.");
     	}
     }
 
