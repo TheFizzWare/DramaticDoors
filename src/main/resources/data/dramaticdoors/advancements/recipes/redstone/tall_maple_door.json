@@ -1,0 +1,37 @@
+{
+  "parent": "dramaticdoors:recipes/root",
+  "rewards": {
+    "recipes": [
+      "dramaticdoors:tall_maple_door"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "dramaticdoors:tall_maple_door"
+      }
+    },
+    "has_items": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [ "autumnity:maple_door" ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_items"
+    ]
+  ],
+  "conditions": [
+    {
+      "type": "dramaticdoors:autumnity_mod_installed"
+    }
+  ]
+}

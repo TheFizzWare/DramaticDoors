@@ -1,13 +1,19 @@
 package com.fizzware.dramaticdoors.blocks;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.apache.commons.lang3.NotImplementedException;
+
+import com.fizzware.dramaticdoors.blocks.DramaticDoorsBlocks.DoorSeries;
 import com.fizzware.dramaticdoors.state.properties.DoorBlockStateProperties;
 import com.fizzware.dramaticdoors.state.properties.TripleBlockPart;
 import com.mojang.blaze3d.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.*;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -48,6 +54,7 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 @SuppressWarnings("deprecation")
 public class TallDoorBlock extends Block {
 
+	//Vanilla
     public static final String NAME_OAK = "tall_oak_door";
     public static final String NAME_SPRUCE = "tall_spruce_door";
     public static final String NAME_BIRCH = "tall_birch_door";
@@ -58,12 +65,115 @@ public class TallDoorBlock extends Block {
     public static final String NAME_CRIMSON = "tall_crimson_door";
     public static final String NAME_WARPED = "tall_warped_door";
 
-    // TODO: Reorganize / Enumerate for BOP, Upgrade Aquatic, etc.
-    public static String[] getNames() {
-        return new String[] {
-                NAME_OAK, NAME_SPRUCE, NAME_BIRCH,
-                NAME_JUNGLE, NAME_ACACIA, NAME_DARK_OAK,
-                NAME_IRON, NAME_CRIMSON, NAME_WARPED };
+    //Biomes o' Plenty (Given name prefix to avoid conflicts)
+    public static final String NAME_BOP_CHERRY = "tall_bop_cherry_door";
+    public static final String NAME_BOP_DEAD = "tall_bop_dead_door";
+    public static final String NAME_BOP_FIR = "tall_bop_fir_door";
+    public static final String NAME_BOP_HELLBARK = "tall_bop_hellbark_door";
+    public static final String NAME_BOP_JACARANDA = "tall_bop_jacaranda_door";
+    public static final String NAME_BOP_MAGIC = "tall_bop_magic_door";
+    public static final String NAME_BOP_MAHOGANY = "tall_bop_mahogany_door";
+    public static final String NAME_BOP_PALM = "tall_bop_palm_door";
+    public static final String NAME_BOP_REDWOOD = "tall_bop_redwood_door";
+    public static final String NAME_BOP_UMBRAN = "tall_bop_umbran_door";
+    public static final String NAME_BOP_WILLOW = "tall_bop_willow_door";
+    
+    //Twilight Forest
+    public static final String NAME_CANOPY = "tall_canopy_door";
+    public static final String NAME_DARKWOOD = "tall_darkwood_door";
+    public static final String NAME_MANGROVE = "tall_mangrove_door";
+    public static final String NAME_MINEWOOD = "tall_minewood_door";
+    public static final String NAME_SORTINGWOOD = "tall_sortingwood_door";
+    public static final String NAME_TIMEWOOD = "tall_timewood_door";
+    public static final String NAME_TRANSWOOD = "tall_transwood_door";
+    public static final String NAME_TWILIGHT_OAK = "tall_twilight_oak_door";
+    
+    //Atmospheric
+    public static final String NAME_ASPEN = "tall_aspen_door";
+    public static final String NAME_GRIMWOOD = "tall_grimwood_door";
+    public static final String NAME_KOUSA = "tall_kousa_door";
+    public static final String NAME_MORADO = "tall_morado_door";
+    public static final String NAME_ROSEWOOD = "tall_rosewood_door";
+    public static final String NAME_YUCCA = "tall_yucca_door";
+    
+    //Autumnity
+    public static final String NAME_MAPLE = "tall_maple_door";
+    
+    //Bamboo Blocks
+    public static final String NAME_BAMBOO = "tall_bamboo_door";
+    
+    //Buzzier Bees
+    public static final String NAME_HONEYCOMB = "tall_honeycomb_door";
+    
+    //Endergetic Expansion
+    public static final String NAME_POISE = "tall_poise_door";
+    
+    //Environmental
+    public static final String NAME_CHERRY = "tall_cherry_door";
+    public static final String NAME_WILLOW = "tall_willow_door";
+    public static final String NAME_WISTERIA = "tall_wisteria_door";
+
+    //Upgrade Aquatic
+    public static final String NAME_DRIFTWOOD = "tall_driftwood_door";
+    public static final String NAME_RIVER = "tall_river_door";
+    public static final String NAME_GLASS = "tall_glass_door";
+    public static final String NAME_TOOTH = "tall_tooth_door";
+    
+    //Abundance
+    public static final String NAME_JACARANDA = "tall_jacaranda_door";
+    public static final String NAME_REDBUD = "tall_redbud_door";
+    
+    //Bayou Blues
+    public static final String NAME_CYPRESS = "tall_cypress_door";
+    
+    //Enhanced Mushrooms
+    public static final String NAME_BROWN_MUSHROOM = "tall_brown_mushroom_door";
+    public static final String NAME_RED_MUSHROOM = "tall_red_mushroom_door";
+    public static final String NAME_GLOWSHROOM = "tall_glowshroom_door";
+    
+    //Outer End
+    public static final String NAME_AZURE = "tall_azure_door";
+    
+    public static String[] getNames(DoorSeries series) {
+    	switch(series) {
+    		case VANILLA:
+    	        return new String[] {
+    	                NAME_OAK, NAME_SPRUCE, NAME_BIRCH,
+    	                NAME_JUNGLE, NAME_ACACIA, NAME_DARK_OAK,
+    	                NAME_IRON, NAME_CRIMSON, NAME_WARPED };
+		    case BOP:
+		        return new String[] {
+		                NAME_BOP_CHERRY, NAME_BOP_DEAD, NAME_BOP_FIR, NAME_BOP_HELLBARK, NAME_BOP_JACARANDA, NAME_BOP_MAGIC,
+		                NAME_BOP_MAHOGANY, NAME_BOP_PALM, NAME_BOP_REDWOOD, NAME_BOP_UMBRAN, NAME_BOP_WILLOW };
+		    case TWILIGHT_FOREST:
+		        return new String[] {
+		                NAME_CANOPY, NAME_DARKWOOD, NAME_MANGROVE, NAME_MINEWOOD,
+		                NAME_SORTINGWOOD, NAME_TIMEWOOD, NAME_TRANSWOOD, NAME_TWILIGHT_OAK };
+    		case ATMOSPHERIC:
+    	        return new String[] { NAME_ASPEN, NAME_GRIMWOOD, NAME_KOUSA, NAME_MORADO, NAME_ROSEWOOD, NAME_YUCCA };
+    		case AUTUMNITY:
+    	        return new String[] { NAME_MAPLE };
+    		case BAMBOO:
+    	        return new String[] { NAME_BAMBOO };
+    		case BUZZIER:
+    	        return new String[] { NAME_HONEYCOMB };
+    		case ENDERGETIC:
+    	        return new String[] { NAME_POISE };
+    		case ENVIRONMENTAL:
+    	        return new String[] { NAME_CHERRY, NAME_WILLOW, NAME_WISTERIA };
+    		case UPGRADE_AQUATIC:
+    	        return new String[] { NAME_DRIFTWOOD, NAME_RIVER, NAME_GLASS, NAME_TOOTH };
+    		case ABUNDANCE:
+    	        return new String[] { NAME_JACARANDA, NAME_REDBUD };
+    		case BAYOU_BLUES:
+    	        return new String[] { NAME_CYPRESS };
+    		case ENH_MUSHROOMS:
+    	        return new String[] { NAME_BROWN_MUSHROOM, NAME_RED_MUSHROOM, NAME_GLOWSHROOM };
+    		case OUTER_END:
+    	        return new String[] { NAME_AZURE };
+    		default:
+    	        throw new NotImplementedException("Don't use the tall version of DoorSeries.");
+    	}
     }
 
     public static final EnumProperty<TripleBlockPart> THIRD = DoorBlockStateProperties.TRIPLE_BLOCK_THIRD;
@@ -204,9 +314,21 @@ public class TallDoorBlock extends Block {
             worldIn.setBlock(pos, state, 10);
             worldIn.levelEvent(player, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
             worldIn.gameEvent(player, state.getValue(OPEN) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
+            if (DramaticDoorsBlocks.TALL_TOOTH_DOOR != null && this == DramaticDoorsBlocks.TALL_TOOTH_DOOR) {
+            	worldIn.getBlockTicks().scheduleTick(pos, this, 20);
+            }
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
         }
     }
+    
+	@Override
+	public void tick(BlockState state, ServerLevel worldIn, BlockPos pos, Random random) {
+		if (!worldIn.isClientSide) {
+			state = state.cycle(OPEN);
+			worldIn.setBlock(pos, state, 10);
+			worldIn.levelEvent(null, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
+		}
+	}
 
     public void toggleDoor(Level worldIn, BlockPos pos, boolean open) {
         BlockState blockstate = worldIn.getBlockState(pos);

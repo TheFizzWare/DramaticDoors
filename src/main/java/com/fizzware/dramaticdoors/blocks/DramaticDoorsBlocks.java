@@ -1,16 +1,16 @@
 package com.fizzware.dramaticdoors.blocks;
 
 import com.fizzware.dramaticdoors.DramaticDoors;
-
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.ObjectHolder;
-import org.apache.commons.lang3.NotImplementedException;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 @ObjectHolder(DramaticDoors.MOD_ID)
@@ -25,47 +25,226 @@ public class DramaticDoorsBlocks {
     @ObjectHolder(TallDoorBlock.NAME_IRON) public static final Block TALL_IRON_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_CRIMSON) public static final Block TALL_CRIMSON_DOOR = null;
     @ObjectHolder(TallDoorBlock.NAME_WARPED) public static final Block TALL_WARPED_DOOR = null;
+    
+    //Biomes O' Plenty
+    @ObjectHolder(TallDoorBlock.NAME_BOP_CHERRY) public static final Block TALL_BOP_CHERRY_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_DEAD) public static final Block TALL_BOP_DEAD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_FIR) public static final Block TALL_BOP_FIR_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_HELLBARK) public static final Block TALL_BOP_HELLBARK_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_JACARANDA) public static final Block TALL_BOP_JACARANDA_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_MAGIC) public static final Block TALL_BOP_MAGIC_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_MAHOGANY) public static final Block TALL_BOP_MAHOGANY_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_PALM) public static final Block TALL_BOP_PALM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_REDWOOD) public static final Block TALL_BOP_REDWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_UMBRAN) public static final Block TALL_BOP_UMBRAN_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_BOP_WILLOW) public static final Block TALL_BOP_WILLOW_DOOR = null;
+    
+    //Twilight Forest
+    @ObjectHolder(TallDoorBlock.NAME_CANOPY) public static final Block TALL_CANOPY_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_DARKWOOD) public static final Block TALL_DARKWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_MANGROVE) public static final Block TALL_MANGROVE_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_MINEWOOD) public static final Block TALL_MINEWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_SORTINGWOOD) public static final Block TALL_SORTINGWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_TIMEWOOD) public static final Block TALL_TIMEWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_TRANSWOOD) public static final Block TALL_TRANSWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_TWILIGHT_OAK) public static final Block TALL_TWILIGHT_OAK_DOOR = null;
+    
+    //Atmospheric
+    @ObjectHolder(TallDoorBlock.NAME_ASPEN) public static final Block TALL_ASPEN_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_GRIMWOOD) public static final Block TALL_GRIMWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_KOUSA) public static final Block TALL_KOUSA_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_MORADO) public static final Block TALL_MORADO_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_ROSEWOOD) public static final Block TALL_ROSEWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_YUCCA) public static final Block TALL_YUCCA_DOOR = null;
+    
+    //Autumnity
+    @ObjectHolder(TallDoorBlock.NAME_MAPLE) public static final Block TALL_MAPLE_DOOR = null;
+    
+    //Bamboo Blocks
+    @ObjectHolder(TallDoorBlock.NAME_BAMBOO) public static final Block TALL_BAMBOO_DOOR = null;
+
+    //Buzzier Bees
+    @ObjectHolder(TallDoorBlock.NAME_HONEYCOMB) public static final Block TALL_HONEYCOMB_DOOR = null;
+    
+    //Endergetic Expansion
+    @ObjectHolder(TallDoorBlock.NAME_POISE) public static final Block TALL_POISE_DOOR = null;
+    
+    //Environmental
+    @ObjectHolder(TallDoorBlock.NAME_CHERRY) public static final Block TALL_CHERRY_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_WILLOW) public static final Block TALL_WILLOW_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_WISTERIA) public static final Block TALL_WISTERIA_DOOR = null;
+    
+    //Upgrade Aquatic
+    @ObjectHolder(TallDoorBlock.NAME_DRIFTWOOD) public static final Block TALL_DRIFTWOOD_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_RIVER) public static final Block TALL_RIVER_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_GLASS) public static final Block TALL_GLASS_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_TOOTH) public static final Block TALL_TOOTH_DOOR = null;
+    
+    //Abundance
+    @ObjectHolder(TallDoorBlock.NAME_JACARANDA) public static final Block TALL_JACARANDA_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_REDBUD) public static final Block TALL_REDBUD_DOOR = null;
+    
+    //Bayou Blues
+    @ObjectHolder(TallDoorBlock.NAME_CYPRESS) public static final Block TALL_CYPRESS_DOOR = null;
+    
+    //Enhanced Mushrooms
+    @ObjectHolder(TallDoorBlock.NAME_BROWN_MUSHROOM) public static final Block TALL_BROWN_MUSHROOM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_RED_MUSHROOM) public static final Block TALL_RED_MUSHROOM_DOOR = null;
+    @ObjectHolder(TallDoorBlock.NAME_GLOWSHROOM) public static final Block TALL_GLOWSHROOM_DOOR = null;
+    
+    //Outer End
+    @ObjectHolder(TallDoorBlock.NAME_AZURE) public static final Block TALL_AZURE_DOOR = null;
 
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> blockRegistry) {
-        Block[] vanillaDoors = getBlockList(DoorSeries.VANILLA);
-        String[] tallDoorNames = TallDoorBlock.getNames();
         IForgeRegistry<Block> registry = blockRegistry.getRegistry();
-        for (int i = 0; i < vanillaDoors.length; i++) {
-            registry.register(new TallDoorBlock(vanillaDoors[i]).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, tallDoorNames[i])));
-//            blockRegistry.getRegistry().registerAll(
-//                    new TallDoorBlock(Blocks.OAK_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_OAK)),
-//                    new TallDoorBlock(Blocks.SPRUCE_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_SPRUCE)),
-//                    new TallDoorBlock(Blocks.BIRCH_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_BIRCH)),
-//                    new TallDoorBlock(Blocks.JUNGLE_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_JUNGLE)),
-//                    new TallDoorBlock(Blocks.ACACIA_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_ACACIA)),
-//                    new TallDoorBlock(Blocks.DARK_OAK_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_DARK_OAK)),
-//                    new TallDoorBlock(Blocks.IRON_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_IRON))
-//            );
+        addBlockSeries(registry, DoorSeries.VANILLA, "minecraft");
+        //Conditionally add doors based on whether mods are loaded.
+        //Big mods
+        addBlockSeries(registry, DoorSeries.BOP, "biomesoplenty");
+        addBlockSeries(registry, DoorSeries.TWILIGHT_FOREST, "twilightforest");
+        //Abnormals
+        addBlockSeries(registry, DoorSeries.ATMOSPHERIC, "atmospheric");
+        addBlockSeries(registry, DoorSeries.AUTUMNITY, "autumnity");
+        addBlockSeries(registry, DoorSeries.BAMBOO, "bamboo_blocks");
+        addBlockSeries(registry, DoorSeries.BUZZIER, "buzzier_bees");
+        addBlockSeries(registry, DoorSeries.ENDERGETIC, "endergetic");
+        addBlockSeries(registry, DoorSeries.ENVIRONMENTAL, "environmental");
+        addBlockSeries(registry, DoorSeries.UPGRADE_AQUATIC, "upgrade_aquatic");
+        //Team Aurora
+        addBlockSeries(registry, DoorSeries.ABUNDANCE, "abundance");
+        addBlockSeries(registry, DoorSeries.BAYOU_BLUES, "bayou_blues");
+        addBlockSeries(registry, DoorSeries.ENH_MUSHROOMS, "enhanced_mushrooms");
+        //Miscellaneous
+        addBlockSeries(registry, DoorSeries.OUTER_END, "outer_end");
+    }
+    
+    private static void addBlockSeries(IForgeRegistry<Block> registry, DoorSeries series, String modid) {
+        String[] tallDoorNames = TallDoorBlock.getNames(series);
+        if (ModList.get().isLoaded(modid)) {
+	        Block[] baseDoors = getBlockList(series);
+	        for (int i = 0; i < baseDoors.length; i++) {
+	            registry.register(new TallDoorBlock(baseDoors[i]).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, tallDoorNames[i])));
+	        }
+        }
+        else { //Add fallback blocks that shall retain data.
+	        Block[] baseDoors = getBlockList(series);
+	        for (int i = 0; i < baseDoors.length; i++) {
+	            registry.register(new TallDoorBlock(Blocks.OAK_DOOR).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, tallDoorNames[i])));
+	        }
         }
     }
 
-    public static Block[] getBlockList(DoorSeries series) {
+    @SuppressWarnings("deprecation")
+	public static Block[] getBlockList(DoorSeries series) {
         switch (series) {
             case VANILLA:
                 return new Block[] {
                         Blocks.OAK_DOOR, Blocks.SPRUCE_DOOR, Blocks.BIRCH_DOOR,
                         Blocks.JUNGLE_DOOR, Blocks.ACACIA_DOOR, Blocks.DARK_OAK_DOOR,
                         Blocks.IRON_DOOR, Blocks.CRIMSON_DOOR, Blocks.WARPED_DOOR };
-                // TODO: Update mappings. Crimson is mS and Warped is mT
             case VANILLA_TALL:
                 return new Block[] {
                         TALL_OAK_DOOR, TALL_SPRUCE_DOOR, TALL_BIRCH_DOOR,
                         TALL_JUNGLE_DOOR, TALL_ACACIA_DOOR, TALL_DARK_OAK_DOOR,
                         TALL_IRON_DOOR, TALL_CRIMSON_DOOR, TALL_WARPED_DOOR };
-            case BOP:
-                throw new NotImplementedException("Biomes O' Plenty not yet supported."); // TODO BOP (Many)
-            case BOP_TALL:
-                throw new NotImplementedException("Biomes O' Plenty not yet supported."); // TODO BOP (Many Tall)
+            //Abnormals Mods
+            case ATMOSPHERIC:
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("atmospheric", "aspen_door")),
+            			Registry.BLOCK.get(new ResourceLocation("atmospheric", "grimwood_door")),
+            			Registry.BLOCK.get(new ResourceLocation("atmospheric", "kousa_door")),
+            			Registry.BLOCK.get(new ResourceLocation("atmospheric", "morado_door")),
+            			Registry.BLOCK.get(new ResourceLocation("atmospheric", "rosewood_door")),
+            			Registry.BLOCK.get(new ResourceLocation("atmospheric", "yucca_door")) };
+            case ATMOSPHERIC_TALL:
+            	return new Block[] { TALL_ASPEN_DOOR, TALL_GRIMWOOD_DOOR, TALL_KOUSA_DOOR, TALL_MORADO_DOOR, TALL_ROSEWOOD_DOOR, TALL_YUCCA_DOOR };
+            case AUTUMNITY:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("autumnity", "maple_door")) };
+            case AUTUMNITY_TALL:
+            	return new Block[] { TALL_MAPLE_DOOR };
+            case BAMBOO:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("bamboo_blocks", "bamboo_door")) };
+            case BAMBOO_TALL:
+            	return new Block[] { TALL_BAMBOO_DOOR };
+            case BUZZIER:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("buzzier_bees", "honeycomb_door")) };
+            case BUZZIER_TALL:
+            	return new Block[] { TALL_HONEYCOMB_DOOR };
+            case ENDERGETIC:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("endergetic", "poise_door")) };
+            case ENDERGETIC_TALL:
+            	return new Block[] { TALL_POISE_DOOR };
+            case ENVIRONMENTAL:
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("environmental", "cherry_door")),
+            			Registry.BLOCK.get(new ResourceLocation("environmental", "willow_door")),
+            			Registry.BLOCK.get(new ResourceLocation("environmental", "wisteria_door")) };
+            case ENVIRONMENTAL_TALL:
+            	return new Block[] { TALL_CHERRY_DOOR, TALL_WILLOW_DOOR, TALL_WISTERIA_DOOR };
             case UPGRADE_AQUATIC:
-                throw new NotImplementedException("Upgrade Aquatic not yet supported."); // TODO Upgrade Aquatic (Driftwood Door)
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("upgrade_aquatic", "driftwood_door")),
+            			Registry.BLOCK.get(new ResourceLocation("upgrade_aquatic", "river_door")),
+           			    Registry.BLOCK.get(new ResourceLocation("upgrade_aquatic", "glass_door")),
+            			Registry.BLOCK.get(new ResourceLocation("upgrade_aquatic", "tooth_door")) };
             case UPGRADE_AQUATIC_TALL:
-                throw new NotImplementedException("Upgrade Aquatic not yet supported."); // TODO Upgrade Aquatic (Tall Driftwood Door)
+            	return new Block[] { TALL_DRIFTWOOD_DOOR, TALL_RIVER_DOOR, TALL_GLASS_DOOR, TALL_TOOTH_DOOR };
+            //Team Aurora Mods
+            case ABUNDANCE:
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("abundance", "jacaranda_door")),
+            			Registry.BLOCK.get(new ResourceLocation("abundance", "redbud_door")) };
+            case ABUNDANCE_TALL:
+            	return new Block[] { TALL_JACARANDA_DOOR, TALL_REDBUD_DOOR };
+            case BAYOU_BLUES:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("bayou_blues", "cypress_door")) };
+            case BAYOU_BLUES_TALL:
+            	return new Block[] { TALL_CYPRESS_DOOR };
+            case ENH_MUSHROOMS:
+            	return new Block[] { 
+            			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "brown_mushroom_door")),
+            			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "red_mushroom_door")),
+            			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "glowshroom_door")) };
+            case ENH_MUSHROOMS_TALL:
+            	return new Block[] { TALL_BROWN_MUSHROOM_DOOR, TALL_RED_MUSHROOM_DOOR, TALL_GLOWSHROOM_DOOR };
+            //Miscellaneous
+            case OUTER_END:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("outer_end", "azure_door")) };
+            case OUTER_END_TALL:
+            	return new Block[] { TALL_AZURE_DOOR };
+            case BOP:
+            	return new Block[] {
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "cherry_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "dead_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "fir_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "hellbark_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "jacaranda_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "magic_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "mahogany_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "palm_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "redwood_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "umbran_door")),
+            			Registry.BLOCK.get(new ResourceLocation("biomesoplenty", "willow_door")) };
+            case BOP_TALL:
+            	return new Block[] { 
+            			TALL_BOP_CHERRY_DOOR, TALL_BOP_DEAD_DOOR, TALL_BOP_FIR_DOOR, TALL_BOP_HELLBARK_DOOR, TALL_BOP_JACARANDA_DOOR, TALL_BOP_MAGIC_DOOR,
+            			TALL_BOP_MAHOGANY_DOOR, TALL_BOP_PALM_DOOR, TALL_BOP_REDWOOD_DOOR, TALL_BOP_UMBRAN_DOOR, TALL_BOP_WILLOW_DOOR };
+            case TWILIGHT_FOREST:
+            	return new Block[] {
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "canopy_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "dark_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "mangrove_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "mining_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "sorting_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "time_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "transformation_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "twilight_oak_door")) };
+            case TWILIGHT_FOREST_TALL:
+            	return new Block[] { 
+            			TALL_CANOPY_DOOR, TALL_DARKWOOD_DOOR, TALL_MANGROVE_DOOR, TALL_MINEWOOD_DOOR,
+            			TALL_SORTINGWOOD_DOOR, TALL_TIMEWOOD_DOOR, TALL_TRANSWOOD_DOOR, TALL_TWILIGHT_OAK_DOOR };
+            //Failsafe
             default:
                 return new Block[] {};
         }
@@ -76,7 +255,29 @@ public class DramaticDoorsBlocks {
         VANILLA_TALL,
         BOP,
         BOP_TALL,
+        TWILIGHT_FOREST,
+        TWILIGHT_FOREST_TALL,
+        ATMOSPHERIC,
+        ATMOSPHERIC_TALL,
+        AUTUMNITY,
+        AUTUMNITY_TALL,
+        BAMBOO,
+        BAMBOO_TALL,
+        BUZZIER,
+        BUZZIER_TALL,
+        ENDERGETIC,
+        ENDERGETIC_TALL,
+        ENVIRONMENTAL,
+        ENVIRONMENTAL_TALL,
         UPGRADE_AQUATIC,
-        UPGRADE_AQUATIC_TALL // TODO Series: All, All Short, All Tall
+        UPGRADE_AQUATIC_TALL,
+        ABUNDANCE,
+        ABUNDANCE_TALL,
+        BAYOU_BLUES,
+        BAYOU_BLUES_TALL,
+        ENH_MUSHROOMS,
+        ENH_MUSHROOMS_TALL,
+        OUTER_END,
+        OUTER_END_TALL
     }
 }

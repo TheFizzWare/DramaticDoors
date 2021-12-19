@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_misc_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "upgrade_aquatic:tooth_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_tooth_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:upgrade_aquatic_mod_installed"
+    }
+  ]
+}

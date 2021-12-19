@@ -1,0 +1,37 @@
+{
+  "parent": "dramaticdoors:recipes/root",
+  "rewards": {
+    "recipes": [
+      "dramaticdoors:tall_sortingwood_door"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "dramaticdoors:tall_sortingwood_door"
+      }
+    },
+    "has_items": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [ "twilightforest:sorting_door" ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_items"
+    ]
+  ],
+  "conditions": [
+    {
+      "type": "dramaticdoors:twilightforest_mod_installed"
+    }
+  ]
+}

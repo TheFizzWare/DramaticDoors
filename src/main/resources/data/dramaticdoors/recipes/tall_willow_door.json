@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "environmental:willow_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_willow_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:environmental_mod_installed"
+    }
+  ]
+}
