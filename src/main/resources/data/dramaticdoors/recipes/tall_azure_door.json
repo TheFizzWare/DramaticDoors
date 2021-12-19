@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:azure_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_azure_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:outer_end_mod_installed"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "upgrade_aquatic:driftwood_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_driftwood_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:upgrade_aquatic_mod_installed"
+    }
+  ]
+}

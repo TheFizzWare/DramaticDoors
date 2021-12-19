@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "bayou_blues:cypress_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_cypress_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:bayou_blues_mod_installed"
+    }
+  ]
+}

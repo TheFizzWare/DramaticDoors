@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[32,)"
+loaderVersion="[37,)"
 license="MIT"
 
 [[mods]]
     modId="dramaticdoors"
-    version="1.17.1-1.2.0"
+    version="1.17.1-1.4.0"
     displayName="Dramatic Doors"
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dramatic-doors"
     issueTrackerURL="https://github.com/TheFizzWare/DramaticDoors/issues"
@@ -30,5 +30,96 @@ license="MIT"
     modId="forge"
     mandatory=true
     versionRange="[37,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="biomesoplenty"
+    mandatory=false
+    versionRange="[1.17.1,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="twilightforest"
+    mandatory=false
+    versionRange="[4.0.860,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="atmospheric"
+    mandatory=false
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="autumnity"
+    mandatory=false
+    versionRange="[2.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="bamboo_blocks"
+    mandatory=false
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="buzzier_bees"
+    mandatory=false
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="endergetic"
+    mandatory=false
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="environmental"
+    mandatory=false
+    versionRange="[1.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="upgrade_aquatic"
+    mandatory=false
+    versionRange="[3.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="abundance"
+    mandatory=false
+    versionRange="[1.16.5-1.0.5,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="bayou_blues"
+    mandatory=false
+    versionRange="[1.16.5-1.0.5,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="enhanced_mushrooms"
+    mandatory=false
+    versionRange="[1.16.5-3.0.9,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="outer_end"
+    mandatory=false
+    versionRange="[0.2,)"
     ordering="AFTER"
     side="BOTH"
