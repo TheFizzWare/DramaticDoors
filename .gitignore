@@ -29,3 +29,5 @@ forge*changelog.txt
 /src/main/generated_resources/.cache/cache
 /logs/debug.log
 /logs/latest.log
+.vscode/launch.json
+.vscode/settings.json
