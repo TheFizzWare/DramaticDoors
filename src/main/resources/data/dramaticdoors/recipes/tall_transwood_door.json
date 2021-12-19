@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_twl_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "twilightforest:transformation_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_transwood_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:twilightforest_mod_installed"
+    }
+  ]
+}
