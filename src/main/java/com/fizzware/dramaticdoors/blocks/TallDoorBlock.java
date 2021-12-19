@@ -105,6 +105,9 @@ public class TallDoorBlock extends Block {
     //Buzzier Bees
     public static final String NAME_HONEYCOMB = "tall_honeycomb_door";
     
+    //Caverns & Chasms
+    public static final String NAME_AZALEA = "tall_azalea_door";
+
     //Endergetic Expansion
     public static final String NAME_POISE = "tall_poise_door";
     
@@ -157,6 +160,8 @@ public class TallDoorBlock extends Block {
     	        return new String[] { NAME_BAMBOO };
     		case BUZZIER:
     	        return new String[] { NAME_HONEYCOMB };
+    		case CAVERNS_CHASMS:
+    	        return new String[] { NAME_AZALEA };
     		case ENDERGETIC:
     	        return new String[] { NAME_POISE };
     		case ENVIRONMENTAL:
@@ -315,7 +320,7 @@ public class TallDoorBlock extends Block {
             worldIn.levelEvent(player, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
             worldIn.gameEvent(player, state.getValue(OPEN) ? GameEvent.BLOCK_OPEN : GameEvent.BLOCK_CLOSE, pos);
             if (DramaticDoorsBlocks.TALL_TOOTH_DOOR != null && this == DramaticDoorsBlocks.TALL_TOOTH_DOOR) {
-            	worldIn.getBlockTicks().scheduleTick(pos, this, 20);
+            	worldIn.scheduleTick(pos, this, 20);
             }
             return InteractionResult.sidedSuccess(worldIn.isClientSide);
         }

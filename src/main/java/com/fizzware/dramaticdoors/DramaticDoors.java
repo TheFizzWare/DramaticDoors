@@ -8,6 +8,7 @@ import com.fizzware.dramaticdoors.crafting.conditions.BambooBlocksModInstalledCo
 import com.fizzware.dramaticdoors.crafting.conditions.BayouBluesModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.BiomesOPlentyModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.BuzzierBeesModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.CavernsAndChasmsModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EndergeticModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EnhancedMushroomsModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EnvironmentalModInstalledCondition;
@@ -21,19 +22,22 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
 
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 
 @Mod("dramaticdoors")
 public class DramaticDoors
 {
     public static final String MOD_ID = "dramaticdoors";
+    //private static final Logger LOGGER = LogManager.getLogger();
 
     public DramaticDoors() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -50,6 +54,7 @@ public class DramaticDoors
     	CraftingHelper.register(new AtmosphericModInstalledCondition.Serializer());
     	CraftingHelper.register(new AutumnityModInstalledCondition.Serializer());
     	CraftingHelper.register(new BambooBlocksModInstalledCondition.Serializer());
+    	CraftingHelper.register(new CavernsAndChasmsModInstalledCondition.Serializer());
     	CraftingHelper.register(new BuzzierBeesModInstalledCondition.Serializer());
     	CraftingHelper.register(new EndergeticModInstalledCondition.Serializer());
     	CraftingHelper.register(new EnvironmentalModInstalledCondition.Serializer());
@@ -69,7 +74,7 @@ public class DramaticDoors
     }
 
     @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
+    public void onServerStarting(ServerStartingEvent event) {
     }
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)

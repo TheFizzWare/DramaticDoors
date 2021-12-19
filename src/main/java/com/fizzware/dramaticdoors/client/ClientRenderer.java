@@ -30,6 +30,9 @@ public class ClientRenderer
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.BUZZIER_TALL)) {
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.CAVERNS_CHASMS_TALL)) {
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
+        }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.ENDERGETIC_TALL)) {
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }

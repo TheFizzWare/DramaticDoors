@@ -68,6 +68,8 @@ public class DramaticDoorsItems {
             
             new BlockItem(DramaticDoorsBlocks.TALL_HONEYCOMB_DOOR, conditionalTabProperties("buzzier_bees")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_HONEYCOMB)),
             
+            new BlockItem(DramaticDoorsBlocks.TALL_AZALEA_DOOR, conditionalTabProperties("caverns_and_chasms")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_AZALEA)),
+            
             new BlockItem(DramaticDoorsBlocks.TALL_POISE_DOOR, conditionalTabProperties("endergetic")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_POISE)),
             
             new BlockItem(DramaticDoorsBlocks.TALL_CHERRY_DOOR, conditionalTabProperties("environmental")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_CHERRY)),
@@ -91,9 +93,9 @@ public class DramaticDoorsItems {
             new BlockItem(DramaticDoorsBlocks.TALL_AZURE_DOOR, conditionalTabProperties("outer_end")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_AZURE))
         );
     }
-
+    
     private static Item.Properties conditionalTabProperties(String modid) {
     	return ModList.get().isLoaded(modid) ? PROPERTIES.tab(DramaticDoors.TAB) : PROPERTIES.tab(null);
     }
-
+    
 }

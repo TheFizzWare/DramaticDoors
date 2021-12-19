@@ -66,6 +66,9 @@ public class DramaticDoorsBlocks {
     //Buzzier Bees
     @ObjectHolder(TallDoorBlock.NAME_HONEYCOMB) public static final Block TALL_HONEYCOMB_DOOR = null;
     
+    //Caverns & Chasms
+    @ObjectHolder(TallDoorBlock.NAME_AZALEA) public static final Block TALL_AZALEA_DOOR = null;
+    
     //Endergetic Expansion
     @ObjectHolder(TallDoorBlock.NAME_POISE) public static final Block TALL_POISE_DOOR = null;
     
@@ -108,6 +111,7 @@ public class DramaticDoorsBlocks {
         addBlockSeries(registry, DoorSeries.AUTUMNITY, "autumnity");
         addBlockSeries(registry, DoorSeries.BAMBOO, "bamboo_blocks");
         addBlockSeries(registry, DoorSeries.BUZZIER, "buzzier_bees");
+        addBlockSeries(registry, DoorSeries.CAVERNS_CHASMS, "caverns_and_chasms");
         addBlockSeries(registry, DoorSeries.ENDERGETIC, "endergetic");
         addBlockSeries(registry, DoorSeries.ENVIRONMENTAL, "environmental");
         addBlockSeries(registry, DoorSeries.UPGRADE_AQUATIC, "upgrade_aquatic");
@@ -201,6 +205,10 @@ public class DramaticDoorsBlocks {
             	return new Block[] { Registry.BLOCK.get(new ResourceLocation("bayou_blues", "cypress_door")) };
             case BAYOU_BLUES_TALL:
             	return new Block[] { TALL_CYPRESS_DOOR };
+            case CAVERNS_CHASMS:
+            	return new Block[] { Registry.BLOCK.get(new ResourceLocation("caverns_and_chasms", "azalea_door")) };
+            case CAVERNS_CHASMS_TALL:
+            	return new Block[] { TALL_AZALEA_DOOR };
             case ENH_MUSHROOMS:
             	return new Block[] { 
             			Registry.BLOCK.get(new ResourceLocation("enhanced_mushrooms", "brown_mushroom_door")),
@@ -265,6 +273,8 @@ public class DramaticDoorsBlocks {
         BAMBOO_TALL,
         BUZZIER,
         BUZZIER_TALL,
+        CAVERNS_CHASMS,
+        CAVERNS_CHASMS_TALL,
         ENDERGETIC,
         ENDERGETIC_TALL,
         ENVIRONMENTAL,

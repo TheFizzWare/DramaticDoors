@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_wooden_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "outer_end:azalea_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_azalea_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:cavens_and_chasms_mod_installed"
+    }
+  ]
+}
