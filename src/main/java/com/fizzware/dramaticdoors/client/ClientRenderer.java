@@ -18,6 +18,12 @@ public class ClientRenderer
 	        RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
 	    }
 	    // Add rendering for addon doors.
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.BOP_TALL)) {
+            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
+        }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.TWILIGHT_FOREST_TALL)) {
+            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
+        }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.ATMOSPHERIC_TALL)) {
             RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
         }
@@ -53,13 +59,19 @@ public class ClientRenderer
         		RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
         	}
         }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.DARKER_DEPTHS_TALL)) {
+            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
+        }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.DUSTRIAL_DECOR_TALL)) {
+            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
+        }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.HABITAT_TALL)) {
+            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
+        }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.OUTER_END_TALL)) {
             RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
         }
-        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.BOP_TALL)) {
-            RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
-        }
-        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.TWILIGHT_FOREST_TALL)) {
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.SUPPLEMENTARIES_TALL)) {
             RenderTypeLookup.setRenderLayer(doorBlock, RenderType.cutout());
         }
 	}

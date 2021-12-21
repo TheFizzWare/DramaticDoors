@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_misc_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "dustrial_decor:cardboard_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_cardboard_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:dustrial_decor_mod_installed"
+    }
+  ]
+}

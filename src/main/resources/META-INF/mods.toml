@@ -1,10 +1,10 @@
 modLoader="javafml"
-loaderVersion="[32,)"
+loaderVersion="[36,)"
 license="MIT"
 
 [[mods]]
     modId="dramaticdoors"
-    version="1.16.5-1.4.0"
+    version="1.16.5-1.4.1"
     displayName="Dramatic Doors"
     displayURL="https://www.curseforge.com/minecraft/mc-mods/dramatic-doors"
     issueTrackerURL="https://github.com/TheFizzWare/DramaticDoors/issues"
@@ -27,6 +27,13 @@ license="MIT"
     
     Now supports certain mods that add wood types!
     '''
+
+[[dependencies.dramaticdoors]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,)"
+    ordering="AFTER"
+    side="BOTH"
 
 [[dependencies.dramaticdoors]]
     modId="forge"
@@ -118,10 +125,38 @@ license="MIT"
     versionRange="[1.16.5-3.0.9,)"
     ordering="AFTER"
     side="BOTH"
-    
+
+[[dependencies.dramaticdoors]]
+    modId="darkerdepths"
+    mandatory=false
+    versionRange="[1.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="dustrial_decor"
+    mandatory=false
+    versionRange="[1.2.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.dramaticdoors]]
+    modId="habitat"
+    mandatory=false
+    versionRange="[1.0.1,)"
+    ordering="AFTER"
+    side="BOTH"
+
 [[dependencies.dramaticdoors]]
     modId="outer_end"
     mandatory=false
     versionRange="[0.2,)"
+    ordering="AFTER"
+    side="BOTH"
+    
+[[dependencies.dramaticdoors]]
+    modId="supplementaries"
+    mandatory=false
+    versionRange="[0.17,)"
     ordering="AFTER"
     side="BOTH"
