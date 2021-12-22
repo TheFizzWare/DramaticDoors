@@ -18,6 +18,12 @@ public class ClientRenderer
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
         //Conditionally add rendering on where mods are loaded.
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.BOP_TALL)) {
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
+        }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.TWILIGHT_FOREST_TALL)) {
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
+        }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.ATMOSPHERIC_TALL)) {
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
@@ -28,9 +34,6 @@ public class ClientRenderer
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.BUZZIER_TALL)) {
-            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
-        }
-        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.CAVERNS_CHASMS_TALL)) {
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.ENDERGETIC_TALL)) {
@@ -56,13 +59,19 @@ public class ClientRenderer
         		ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         	}
         }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.DARKER_DEPTHS_TALL)) {
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
+        }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.DUSTRIAL_DECOR_TALL)) {
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
+        }
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.HABITAT_TALL)) {
+            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
+        }
         for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.OUTER_END_TALL)) {
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
-        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.BOP_TALL)) {
-            ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
-        }
-        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.TWILIGHT_FOREST_TALL)) {
+        for (Block doorBlock : DramaticDoorsBlocks.getBlockList(DramaticDoorsBlocks.DoorSeries.SUPPLEMENTARIES_TALL)) {
             ItemBlockRenderTypes.setRenderLayer(doorBlock, RenderType.cutout());
         }
 	}

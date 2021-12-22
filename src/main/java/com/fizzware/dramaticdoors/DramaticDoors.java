@@ -1,5 +1,6 @@
 package com.fizzware.dramaticdoors;
 
+import com.fizzware.dramaticdoors.blocks.DramaticDoorsBlocks;
 import com.fizzware.dramaticdoors.client.ClientRenderer;
 import com.fizzware.dramaticdoors.crafting.conditions.AbundanceModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.AtmosphericModInstalledCondition;
@@ -9,14 +10,19 @@ import com.fizzware.dramaticdoors.crafting.conditions.BayouBluesModInstalledCond
 import com.fizzware.dramaticdoors.crafting.conditions.BiomesOPlentyModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.BuzzierBeesModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.CavernsAndChasmsModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.DarkerDepthsModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.DustrialDecorModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EndergeticModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EnhancedMushroomsModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.EnvironmentalModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.HabitatModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.OuterEndModInstalledCondition;
+import com.fizzware.dramaticdoors.crafting.conditions.SupplementariesModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.TwilightForestModInstalledCondition;
 import com.fizzware.dramaticdoors.crafting.conditions.UpgradeAquaticModInstalledCondition;
 
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -64,10 +70,19 @@ public class DramaticDoors
     	CraftingHelper.register(new BayouBluesModInstalledCondition.Serializer());
     	CraftingHelper.register(new EnhancedMushroomsModInstalledCondition.Serializer());
     	
+    	CraftingHelper.register(new DarkerDepthsModInstalledCondition.Serializer());
+    	CraftingHelper.register(new DustrialDecorModInstalledCondition.Serializer());
+    	CraftingHelper.register(new HabitatModInstalledCondition.Serializer());
     	CraftingHelper.register(new OuterEndModInstalledCondition.Serializer());
+    	CraftingHelper.register(new SupplementariesModInstalledCondition.Serializer());
     }
 
-    public static final CreativeModeTab TAB = CreativeModeTab.TAB_REDSTONE;
+    public static final CreativeModeTab TAB = new CreativeModeTab("dramaticdoors") {
+		@Override
+		public ItemStack makeIcon() {
+			return new ItemStack(DramaticDoorsBlocks.TALL_OAK_DOOR.asItem());
+		}
+    };
 
     private void setupClient(final FMLClientSetupEvent event) {
     	ClientRenderer.setRenderers();
