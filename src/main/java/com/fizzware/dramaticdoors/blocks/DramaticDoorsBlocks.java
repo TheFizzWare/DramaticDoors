@@ -196,7 +196,7 @@ public class DramaticDoorsBlocks {
             			Registry.BLOCK.get(new ResourceLocation("twilightforest", "dark_door")),
             			Registry.BLOCK.get(new ResourceLocation("twilightforest", "mangrove_door")),
             			Registry.BLOCK.get(new ResourceLocation("twilightforest", "mine_door")),
-            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "sort_door")),
+            			Registry.BLOCK.get(new ResourceLocation("twilightforest", "sorting_door")),
             			Registry.BLOCK.get(new ResourceLocation("twilightforest", "time_door")),
             			Registry.BLOCK.get(new ResourceLocation("twilightforest", "trans_door")),
             			Registry.BLOCK.get(new ResourceLocation("twilightforest", "twilight_oak_door")) };

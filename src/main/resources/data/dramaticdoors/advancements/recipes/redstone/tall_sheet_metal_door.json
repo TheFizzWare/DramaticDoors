@@ -17,7 +17,7 @@
       "conditions": {
         "items": [
           {
-            "item": "dustrial_decor:sheet_metal_door"
+            "items": [ "dustrial_decor:sheet_metal_door" ]
           }
         ]
       }
