@@ -1,6 +1,7 @@
 {
   "pack": {
-    "pack_format": 7,
-    "description": "Resources used for Dramatic Doors"
+    "description": "Dramatic Doors resources",
+    "pack_format": 8,
+    "_comment": "Resources used for Dramatic Doors"
   }
 }
