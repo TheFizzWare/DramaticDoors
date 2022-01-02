@@ -87,8 +87,24 @@ public class DramaticDoorsItems {
             new BlockItem(DramaticDoorsBlocks.TALL_BROWN_MUSHROOM_DOOR, conditionalTabProperties("enhanced_mushrooms")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_BROWN_MUSHROOM)),
             new BlockItem(DramaticDoorsBlocks.TALL_RED_MUSHROOM_DOOR, conditionalTabProperties("enhanced_mushrooms")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_RED_MUSHROOM)),
             new BlockItem(DramaticDoorsBlocks.TALL_GLOWSHROOM_DOOR, conditionalTabProperties("enhanced_mushrooms")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_GLOWSHROOM)),
+
+            new BlockItem(DramaticDoorsBlocks.TALL_PETRIFIED_DOOR, conditionalTabProperties("darkerdepths")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_PETRIFIED)),
             
-            new BlockItem(DramaticDoorsBlocks.TALL_AZURE_DOOR, conditionalTabProperties("outer_end")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_AZURE))
+            new BlockItem(DramaticDoorsBlocks.TALL_CARDBOARD_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_CARDBOARD)),
+            new BlockItem(DramaticDoorsBlocks.TALL_CHAIN_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_CHAIN)),
+            new BlockItem(DramaticDoorsBlocks.TALL_INDUSTRIAL_IRON_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_INDUSTRIAL_IRON)),
+            new BlockItem(DramaticDoorsBlocks.TALL_IRON_BAR_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_IRON_BAR)),
+            new BlockItem(DramaticDoorsBlocks.TALL_PADDED_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_PADDED)),
+            new BlockItem(DramaticDoorsBlocks.TALL_RUSTY_IRON_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_RUSTY_IRON)),
+            new BlockItem(DramaticDoorsBlocks.TALL_RUSTY_SHEET_METAL_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_RUSTY_SHEET_METAL)),
+            new BlockItem(DramaticDoorsBlocks.TALL_SHEET_METAL_DOOR, conditionalTabProperties("dustrial_decor")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_SHEET_METAL)),
+            
+            new BlockItem(DramaticDoorsBlocks.TALL_FAIRY_RING_MUSHROOM_DOOR, conditionalTabProperties("habitat")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_FAIRY_RING_MUSHROOM)),
+
+            new BlockItem(DramaticDoorsBlocks.TALL_AZURE_DOOR, conditionalTabProperties("outer_end")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_AZURE)),
+            
+            new BlockItem(DramaticDoorsBlocks.TALL_GOLD_DOOR, conditionalTabProperties("supplementaries")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_GOLD)),
+            new BlockItem(DramaticDoorsBlocks.TALL_NETHERITE_DOOR, conditionalTabProperties("supplementaries")).setRegistryName(new ResourceLocation(DramaticDoors.MOD_ID, TallDoorBlock.NAME_NETHERITE))
         );
     }
 

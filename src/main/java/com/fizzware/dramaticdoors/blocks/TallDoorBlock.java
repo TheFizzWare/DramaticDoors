@@ -8,6 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.apache.commons.lang3.NotImplementedException;
 
 import com.fizzware.dramaticdoors.blocks.DramaticDoorsBlocks.DoorSeries;
+import com.fizzware.dramaticdoors.compat.Compats;
 import com.fizzware.dramaticdoors.state.properties.DoorBlockStateProperties;
 import com.fizzware.dramaticdoors.state.properties.TripleBlockPart;
 
@@ -15,6 +16,7 @@ import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.DoorBlock;
 import net.minecraft.block.HorizontalFaceBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.PushReaction;
@@ -126,8 +128,28 @@ public class TallDoorBlock extends Block {
     public static final String NAME_RED_MUSHROOM = "tall_red_mushroom_door";
     public static final String NAME_GLOWSHROOM = "tall_glowshroom_door";
     
+    //Darker Depths
+    public static final String NAME_PETRIFIED = "tall_petrified_door";
+        
+    //Dustrial Decor
+    public static final String NAME_CARDBOARD = "tall_cardboard_door";
+    public static final String NAME_CHAIN = "tall_chain_door";
+    public static final String NAME_INDUSTRIAL_IRON = "tall_industrial_iron_door";
+    public static final String NAME_IRON_BAR = "tall_iron_bar_door";
+    public static final String NAME_PADDED = "tall_padded_door";
+    public static final String NAME_RUSTY_IRON = "tall_rusty_iron_door";
+    public static final String NAME_RUSTY_SHEET_METAL = "tall_rusty_sheet_metal_door";
+    public static final String NAME_SHEET_METAL = "tall_sheet_metal_door";
+    
+    //Habitat
+    public static final String NAME_FAIRY_RING_MUSHROOM = "tall_fairy_ring_mushroom_door";
+    
     //Outer End
     public static final String NAME_AZURE = "tall_azure_door";
+    
+    //Supplementaries
+    public static final String NAME_GOLD = "tall_gold_door";
+    public static final String NAME_NETHERITE = "tall_netherite_door";
     
     public static String[] getNames(DoorSeries series) {
     	switch(series) {
@@ -164,8 +186,18 @@ public class TallDoorBlock extends Block {
 	        return new String[] { NAME_CYPRESS };
 		case ENH_MUSHROOMS:
 	        return new String[] { NAME_BROWN_MUSHROOM, NAME_RED_MUSHROOM, NAME_GLOWSHROOM };
+		case DARKER_DEPTHS:
+	        return new String[] { NAME_PETRIFIED };
+		case DUSTRIAL_DECOR:
+	        return new String[] { 
+	        		NAME_CARDBOARD, NAME_CHAIN, NAME_INDUSTRIAL_IRON, NAME_IRON_BAR,
+	        		NAME_PADDED, NAME_RUSTY_IRON, NAME_RUSTY_SHEET_METAL, NAME_SHEET_METAL };
+		case HABITAT:
+	        return new String[] { NAME_FAIRY_RING_MUSHROOM };
 		case OUTER_END:
 	        return new String[] { NAME_AZURE };
+		case SUPPLEMENTARIES:
+	        return new String[] { NAME_GOLD, NAME_NETHERITE };
 		default:
 	        throw new NotImplementedException("Don't use the tall version of DoorSeries.");
     	}
@@ -302,13 +334,18 @@ public class TallDoorBlock extends Block {
 
     @Override
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if (this.material == Material.METAL) {
+    	if (this.material == Material.METAL && this != DramaticDoorsBlocks.TALL_GOLD_DOOR && this != DramaticDoorsBlocks.TALL_NETHERITE_DOOR) {
             return ActionResultType.PASS;
-        } else {
+        } 
+    	else {
+        	if (this == DramaticDoorsBlocks.TALL_GOLD_DOOR && state.getValue(POWERED)) {
+        		return ActionResultType.PASS;
+        	}
+        	tryOpenDoubleDoor(worldIn, state, pos);
             state = state.cycle(OPEN);
             worldIn.setBlock(pos, state, 10);
             worldIn.levelEvent(player, state.getValue(OPEN) ? this.getOpenSound() : this.getCloseSound(), pos, 0);
-            if (DramaticDoorsBlocks.TALL_TOOTH_DOOR != null && this == DramaticDoorsBlocks.TALL_TOOTH_DOOR) {
+            if (this == DramaticDoorsBlocks.TALL_TOOTH_DOOR) {
             	worldIn.getBlockTicks().scheduleTick(pos, this, 20);
             }
             return ActionResultType.sidedSuccess(worldIn.isClientSide);
@@ -359,10 +396,16 @@ public class TallDoorBlock extends Block {
             }
         }
         if (blockIn != this && flag != state.getValue(POWERED)) {
-            if (flag != state.getValue(OPEN)) {
-                this.playSound(worldIn, pos, flag);
-            }
-            worldIn.setBlock(pos, state.setValue(POWERED, flag).setValue(OPEN, flag), 2);
+        	if (this == DramaticDoorsBlocks.TALL_GOLD_DOOR) {
+        		worldIn.setBlock(pos, state.setValue(POWERED, flag), 2);
+        	}
+        	else {
+	            if (flag != state.getValue(OPEN)) {
+	                this.playSound(worldIn, pos, flag);
+	            }
+	            tryOpenDoubleDoor(worldIn, state, pos);
+	            worldIn.setBlock(pos, state.setValue(POWERED, flag).setValue(OPEN, flag), 2);
+        	}
         }
     }
 
@@ -441,13 +484,30 @@ public class TallDoorBlock extends Block {
     public BlockState mirror(BlockState state, Mirror mirrorIn) {
         return mirrorIn == Mirror.NONE ? state : state.rotate(mirrorIn.getRotation(state.getValue(FACING))).cycle(HINGE);
     }
+    
+    // TODO: Figure out if Zombie breaking Tall Doors is feasible...
+    public static boolean isWoodenDoor(World level, BlockPos pos) {
+    	return isWoodenDoor(level.getBlockState(pos));
+    }
 
-    // TODO: Figure out if Zombie breaking Tall Doors is feasible... Following obfuscated methods are only used for that.
-//    public static boolean func_235491_a_(World p_235491_0_, BlockPos p_235491_1_) {
-//        return func_235492_h_(p_235491_0_.getBlockState(p_235491_1_));
-//    }
-//
-//    public static boolean func_235492_h_(BlockState p_235492_0_) {
-//        return p_235492_0_.getBlock() instanceof TallDoorBlock && (p_235492_0_.getMaterial() == Material.WOOD || p_235492_0_.getMaterial() == Material.field_237214_y_);
-//    }
+	public static boolean isWoodenDoor(BlockState state) {
+		return state.getBlock() instanceof DoorBlock && (state.getMaterial() == Material.WOOD || state.getMaterial() == Material.NETHER_WOOD);
+	}
+
+	
+	//Quark Compatibility
+	public static void tryOpenDoubleDoor(World world, BlockState state, BlockPos pos) {
+        if (Compats.DOUBLE_DOORS_INSTALLED) {
+            Direction direction = state.getValue(TallDoorBlock.FACING);
+            boolean isOpen = state.getValue(TallDoorBlock.OPEN);
+            DoorHingeSide isMirrored = state.getValue(TallDoorBlock.HINGE);
+            BlockPos mirrorPos = pos.relative(isMirrored == DoorHingeSide.RIGHT ? direction.getCounterClockWise() : direction.getClockWise());
+            BlockPos doorPos = state.getValue(TallDoorBlock.THIRD) == TripleBlockPart.LOWER ? mirrorPos : mirrorPos.below();
+            BlockState other = world.getBlockState(doorPos);
+            if (other.getBlock() == state.getBlock() && other.getValue(TallDoorBlock.FACING) == direction && !other.getValue(TallDoorBlock.POWERED) &&  other.getValue(TallDoorBlock.OPEN) == isOpen && other.getValue(TallDoorBlock.HINGE) != isMirrored) {
+                BlockState newState = other.cycle(TallDoorBlock.OPEN);
+                world.setBlock(doorPos, newState, 10);
+            }
+        }
+    }
 }
