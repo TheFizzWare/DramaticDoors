@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "tall_metal_door",
+  "pattern": [
+    "#",
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "dustrial_decor:sheet_metal_door"
+    }
+  },
+  "result": {
+    "item": "dramaticdoors:tall_sheet_metal_door",
+    "count": 2
+  },
+  "conditions": [
+    {
+      "type": "dramaticdoors:dustrial_decor_mod_installed"
+    }
+  ]
+}
